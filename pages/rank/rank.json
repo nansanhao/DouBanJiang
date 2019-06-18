@@ -1,0 +1,13 @@
+{
+  "usingComponents": {
+      "i-input": "../../iviewComponent/input/index",
+      "i-panel": "../../iviewComponent/panel/index",
+      "i-icon": "../../iviewComponent/icon/index"
+  },
+  "navigationBarBackgroundColor":"#00B51D",
+  "navigationBarTitleText":"榜单",
+  "navigationBarTextStyle":"white",
+  "backgroundColorTop": "#00B51D",
+  "backgroundColorBottom":"#ffffff"
+  
+}

@@ -1,0 +1,36 @@
+<!--pages/user/user.wxml-->
+<view class='user'>
+    <view class='u-avatar'>
+        <image class='u-a-img' src='{{user.avatar}}' mode="aspectFill"></image>
+        <view class='u-name'>
+            {{user.name}}
+        </view>
+        <view class='u-logout'>
+            <view class='u-l-wrap'>
+                <i-icon type="trash" size="18" color='#ffffff' />退出
+            </view>
+        </view>
+    </view>
+</view>
+<view class='list'>
+    <view class='l-title'>我的书影音</view>
+    <i-cell-group>
+        <i-cell i-class="l-item" title="个人信息" is-link value="详情">
+            <i-icon slot="icon" type="mine_fill" size='40' />
+        </i-cell>
+        <i-cell i-class="l-item" title="想 - 看/听/读" is-link value="详情">
+            <i-icon slot="icon" type="live" size='40' />
+        </i-cell>
+        <i-cell i-class="l-item" title="看/听/读 - 过" is-link url="#" value="详情">
+            <i-icon slot="icon" type="live_fill" size='40' />
+        </i-cell>
+        <i-cell title="我的评论" is-link url="#" value="详情">
+            <i-icon slot="icon" type="interactive" size='40' />
+        </i-cell>
+        <!-- <i-cell title="开关">
+            <switch slot="footer" checked />
+        </i-cell> -->
+    </i-cell-group>
+
+</view>
+<i-load-more tip="Powered by Jiang" loading="{{ false }}" />

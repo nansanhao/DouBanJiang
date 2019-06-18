@@ -1,0 +1,55 @@
+/* pages/user/user.wxss */
+.u-avatar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    height: 380rpx;
+    padding-bottom: 30rpx;
+    /* background-color: #00B51D; */
+    background-repeat:no-repeat; 
+    background-size:100% 100%;
+    background-image: url("https://wx3.sinaimg.cn/mw690/007PAyUely1g45cfkfq22j319r0u04qq.jpg?tdsourcetag=s_pctim_aiomsg")
+}
+.u-a-img{
+    width: 180rpx;
+    height: 180rpx;
+    border-radius: 50%;
+    border:4px solid white;
+    
+}
+.u-name{
+    color: white;
+    font-weight: bold;
+    padding-top: 10rpx;
+    font-size: 40rpx
+    
+}
+.u-logout{
+    /* justify-self: flex-end; */
+    align-self: flex-end;
+    font-size: 26rpx;
+    margin-right: 30rpx;
+    border: 1px solid white;
+    padding: 4rpx 10rpx;
+    border-radius: 8rpx;
+    color: white;
+}
+.u-l-wrap{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.list{
+    
+}
+.l-title{
+    padding: 20rpx 30rpx;
+    font-weight: bold;
+    font-size: 32rpx;
+}
+.l-item{
+    
+}

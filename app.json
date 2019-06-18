@@ -1,0 +1,40 @@
+{
+    "pages": [
+        "pages/user/user",
+        "pages/rank/rank",
+        "pages/logs/logs",
+        "pages/recommend/recommend"
+        
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "WeChat",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "list": [
+            {
+                "pagePath": "pages/rank/rank",
+                "text": "榜单",
+                "iconPath": "images/icons/bangdan.png",
+                "selectedIconPath": "images/icons/bangdan1.png"
+            },
+            {
+                "pagePath": "pages/recommend/recommend",
+                "text": "推荐",
+                "iconPath": "images/icons/tuijian.png",
+                "selectedIconPath": "images/icons/tuijian1.png"
+            },
+            {
+                "pagePath": "pages/user/user",
+                "text": "我的",
+                "iconPath": "images/icons/yonghu.png",
+                "selectedIconPath": "images/icons/yonghu1.png"
+            }
+            
+        ],
+        "selectedColor": "#19C057"
+    },
+    "sitemapLocation": "sitemap.json"
+}
