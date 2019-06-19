@@ -1,0 +1,62 @@
+<!-- pages/detail/detail.wxml -->
+<view class="wrap">
+    <view class='movie'>
+        <image src='{{movie.imgUrl}}' class='m-img' mode='aspectFill'></image>
+        <view class='m-info'>
+            <view class='m-i-name'>{{movie.name+"（"+movie.date+"）"}}</view>
+            <view class='m-i-date'>上映时间：{{movie.date}}</view>
+            <view class='m-i-tag'>{{movie.tags+" / "+movie.origin+" / 片长"+movie.length}}</view>
+            <view class='m-i-btn'>
+                <i-button bind:click="handleClick" type="success" size="small" i-class="m-i-b-item">
+                    <i-icon type="like" size='20' />
+                    想看
+                </i-button>
+                <i-button bind:click="handleClick" type="warning" size="small" i-class="m-i-b-item">
+                    <i-icon type="collection" size='20' />
+                    看过
+                </i-button>
+            </view>
+        </view>
+    </view>
+    <view class='rate'>
+        <view class='r-title'>
+            <text>评分：</text>
+            <text class="r-t-num">4396人评分</text>
+        </view>
+        <view class='r-content'>
+            <view class="r-c-num">{{movie.rate}}</view>
+            <i-rate disabled="{{true}}" value="{{movie.rate}}" size="30"></i-rate>
+        </view>
+    </view>
+    <view class="introduction">
+        <view class="i-title">简介</view>
+        <view class="i-content">
+            <text space="emsp">{{movie.introduction}}</text>
+        </view>
+    </view>
+    <view class="comment">
+        <view class="c-title">
+            <text class="c-t-content">评论</text>
+            <text class="c-t-num">4396人评论</text>
+        </view>
+        <view class="c-content">
+            <view wx:for="{{comments}}" class="c-c-item">
+                <view class="item-user">
+                    <view class="i-u-wrap">
+                        <image class="i-u-avatar" src="{{item.user.avatar}}" mode="aspectFill"></image>
+                        <view class="i-u-info">
+                            <view class="i-u-i-name">{{item.user.name}}</view>
+                            <view class="i-u-i-rate">
+                                <i-rate disabled="{{true}}" value="{{item.rate}}" size="10"></i-rate>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="i-u-date">{{item.date}}</view>
+                </view>
+                <view class="item-content">
+                    <text>{{item.content}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

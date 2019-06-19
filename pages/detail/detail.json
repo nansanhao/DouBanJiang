@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+      "i-button": "../../iviewComponent/button/index",
+      "i-icon": "../../iviewComponent/icon/index",
+      "i-rate": "../../iviewComponent/rate/index"
+  },
+  "navigationBarTitleText": "个性推荐"
+}

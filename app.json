@@ -1,5 +1,6 @@
 {
     "pages": [
+        "pages/detail/detail",
         "pages/user/user",
         "pages/rank/rank",
         "pages/logs/logs",
@@ -21,7 +22,7 @@
                 "selectedIconPath": "images/icons/bangdan1.png"
             },
             {
-                "pagePath": "pages/recommend/recommend",
+                "pagePath": "pages/detail/detail",
                 "text": "推荐",
                 "iconPath": "images/icons/tuijian.png",
                 "selectedIconPath": "images/icons/tuijian1.png"
@@ -32,7 +33,6 @@
                 "iconPath": "images/icons/yonghu.png",
                 "selectedIconPath": "images/icons/yonghu1.png"
             }
-            
         ],
         "selectedColor": "#19C057"
     },

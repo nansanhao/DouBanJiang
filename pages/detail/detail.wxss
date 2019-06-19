@@ -1,0 +1,128 @@
+/* pages/detail/detail.wxss */
+.wrap{
+    background-color:  rgb(249, 249, 249);
+    padding-bottom: 20rpx;
+}
+.movie{
+    display: flex;
+    padding: 20rpx 30rpx;
+}
+.m-img{
+    width: 200rpx;
+    height: 297rpx;
+    border-radius: 10rpx;
+    box-shadow:0 0 20rpx #b4b3b3;
+}
+.m-info{
+    flex: 1;
+    margin-left: 30rpx;
+}
+.m-i-name{
+    font-weight: bold;
+    font-size: 44rpx;
+
+}
+.m-i-date{
+    font-size: 28rpx;
+    color: #666;
+    padding: 10rpx 0;
+}
+.m-i-tag{
+    font-size: 28rpx;
+    color: #666;
+    padding: 10rpx 0;
+}
+.m-i-btn{
+    display: flex;
+    align-items: center;
+}
+.m-i-b-item{
+    width: 160rpx;
+    background-color: white;
+    font-weight: bold;
+}
+.rate{
+    margin: 20rpx 30rpx;
+    padding: 40rpx 60rpx;
+    box-shadow:0 0 30rpx #cecccc;
+    border-radius: 20rpx;
+    background-color: white;
+
+}
+.r-title{
+    font-weight: bolder;
+    font-size: 36rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.r-t-num{
+    font-size: 28rpx;
+    color: #666;
+}
+.r-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.r-c-num{
+    font-size: 60rpx;
+    padding: 10rpx 40rpx;
+}
+.introduction{
+    padding: 20rpx 30rpx;
+}
+.i-title{
+    font-weight: bold;
+    padding: 20rpx 0;
+}
+.i-content{
+    font-size: 28rpx;
+}
+.comment{
+    margin: 40rpx 30rpx;
+    padding: 20rpx 30rpx;
+    box-shadow:0 0 30rpx #cecccc;
+    font-size: 32rpx;
+    border-radius: 20rpx;
+}
+.c-c-item{
+    padding: 30rpx 0;
+}
+.c-c-item+.c-c-item{
+    border-top:1px solid rgb(240, 240, 240);
+}
+.c-title{
+    font-weight: bold;
+    padding: 20rpx 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.c-t-num{
+    font-size: 24rpx;
+    color: #666;
+}
+.item-user{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.i-u-wrap{
+    display: flex
+}
+.i-u-avatar{
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+    margin-right: 30rpx;
+}
+.i-u-date{
+    font-size: 24rpx;
+    color: #666;
+}
+.item-content{
+    margin: 20rpx 0;
+    font-size: 28rpx;
+}
