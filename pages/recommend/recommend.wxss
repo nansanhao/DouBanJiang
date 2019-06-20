@@ -1,1 +1,44 @@
 /* pages/recommend/recommend.wxss */
+.swiper-img {
+    width: 690rpx;
+    border-radius: 30rpx;
+    box-shadow:0 0 30rpx #cecccc;
+    
+}
+.s-item{
+    display: flex;
+    justify-content: center;
+}
+.rank-item {
+    margin: 0 21.74rpx 0 0;
+    text-align: center;
+}
+.recommend{
+    padding: 20rpx 30rpx;
+    display: flex;
+    justify-content: space-between;
+}
+.r-m-img {
+    width: 320rpx;
+    height: 476rpx;
+    border-radius: 20rpx;
+    box-shadow:0 0 30rpx #cecccc;
+}
+.r-m-img-song{
+    width: 320rpx;
+    height: 300rpx;
+    border-radius: 20rpx;
+    box-shadow:0 0 30rpx #cecccc;
+}
+.r-m-name {
+    display: block;
+    font-weight: bold;
+    font-size: 32rpx;
+    margin-bottom: 20rpx;
+    margin-top: 10rpx;
+    
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow:ellipsis; 
+    text-align: center;
+}

@@ -18,13 +18,13 @@
         <i-cell i-class="l-item" title="个人信息" is-link value="详情">
             <i-icon slot="icon" type="mine_fill" size='40' />
         </i-cell>
-        <i-cell i-class="l-item" title="想 - 看/听/读" is-link value="详情">
+        <i-cell i-class="l-item" title="想 - 看/听/读" is-link url="/pages/record/record" value="详情">
             <i-icon slot="icon" type="live" size='40' />
         </i-cell>
         <i-cell i-class="l-item" title="看/听/读 - 过" is-link url="#" value="详情">
             <i-icon slot="icon" type="live_fill" size='40' />
         </i-cell>
-        <i-cell title="我的评论" is-link url="#" value="详情">
+        <i-cell i-class="l-item" title="我的评论" is-link url="#" value="详情">
             <i-icon slot="icon" type="interactive" size='40' />
         </i-cell>
         <!-- <i-cell title="开关">

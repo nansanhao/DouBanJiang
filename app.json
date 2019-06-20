@@ -1,11 +1,12 @@
 {
     "pages": [
+        "pages/rank/rank",
+        "pages/record/record",
+        "pages/recommend/recommend",
         "pages/detail/detail",
         "pages/user/user",
-        "pages/rank/rank",
-        "pages/logs/logs",
-        "pages/recommend/recommend"
         
+        "pages/logs/logs"  
     ],
     "window": {
         "backgroundTextStyle": "light",
@@ -22,7 +23,7 @@
                 "selectedIconPath": "images/icons/bangdan1.png"
             },
             {
-                "pagePath": "pages/detail/detail",
+                "pagePath": "pages/recommend/recommend",
                 "text": "推荐",
                 "iconPath": "images/icons/tuijian.png",
                 "selectedIconPath": "images/icons/tuijian1.png"

@@ -1,4 +1,4 @@
-<!--pages/rank/rank.wxml-->
+<!-- pages/rank/rank.wxml -->
 <!-- <view class='swiper'>
     <swiper indicator-dots="{{swiper.indicatorDots}}" autoplay="{{swiper.autoplay}}" interval="{{swiper.interval}}" duration="{{swiper.duration}}" style='height:400rpx'>
         <block wx:for="{{swiper.imgUrl}}">
@@ -23,7 +23,9 @@
                 <view class="weui-search-bar__text">搜索</view>
             </label>
         </view>
-        <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+        <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">
+            取消
+        </view>
     </view>
 </view>
 <view class='rank'>
@@ -32,7 +34,9 @@
             <scroll-view class="scroll-view_H" scroll-x style="width: 100%">
                 <view class="rank-wrap">
                     <view bindtap="movieItemClick" class='rank-item' wx:for="{{moviesRank}}">
-                        <image src='{{item.imgUrl}}' class='r-i-img' mode='aspectFill'></image>
+                        <navigator url="/pages/detail/detail" class="r-i-img">
+                            <image src='{{item.imgUrl}}' class='r-i-img' mode='aspectFill'></image>
+                        </navigator>
                         <view class='r-i-name'>{{item.name}}</view>
                     </view>
                 </view>
@@ -40,14 +44,15 @@
         </view>
     </i-panel>
 </view>
-
 <view class='rank'>
     <i-panel title="热门影片" hide-border="true">
         <view class='rank-content'>
             <scroll-view class="scroll-view_H" scroll-x style="width: 100%">
                 <view class="rank-wrap">
                     <view bindtap="movieItemClick" class='rank-item' wx:for="{{moviesHot}}">
-                        <image src='{{item.imgUrl}}' class='r-i-img' mode='aspectFill'></image>
+                        <navigator url="/pages/detail/detail" class="r-i-img">
+                            <image src='{{item.imgUrl}}' class='r-i-img' mode='aspectFill'></image>
+                        </navigator>
                         <view class='r-i-name'>{{item.name}}</view>
                     </view>
                 </view>
@@ -55,14 +60,15 @@
         </view>
     </i-panel>
 </view>
-
 <view class='rank'>
     <i-panel title="畅销图书" hide-border="true">
         <view class='rank-content'>
             <scroll-view class="scroll-view_H" scroll-x style="width: 100%">
                 <view class="rank-wrap">
                     <view bindtap="movieItemClick" class='rank-item' wx:for="{{books}}">
-                        <image src='{{item.imgUrl}}' class='r-i-img' mode='aspectFill'></image>
+                        <navigator url="/pages/detail/detail" class="r-i-img">
+                            <image src='{{item.imgUrl}}' class='r-i-img' mode='aspectFill'></image>
+                        </navigator>
                         <view class='r-i-name'>{{item.name}}</view>
                     </view>
                 </view>
@@ -70,14 +76,15 @@
         </view>
     </i-panel>
 </view>
-
 <view class='rank'>
     <i-panel title="热门单曲" hide-border="true">
         <view class='rank-content'>
             <scroll-view class="scroll-view_H" scroll-x style="width: 100%">
                 <view class="rank-wrap">
                     <view bindtap="movieItemClick" class='rank-item' wx:for="{{songs}}">
-                        <image src='{{item.imgUrl}}' class='r-i-img-song' mode='aspectFill'></image>
+                        <navigator url="/pages/detail/detail" class="r-i-img-song">
+                            <image src='{{item.imgUrl}}' class='r-i-img-song' mode='aspectFill'></image>
+                        </navigator>
                         <view class='r-i-name'>{{item.name}}</view>
                     </view>
                 </view>
@@ -85,4 +92,3 @@
         </view>
     </i-panel>
 </view>
-

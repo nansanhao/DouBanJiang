@@ -19,12 +19,12 @@
 .r-i-img {
     width: 170rpx;
     height: 253rpx;
-    border-radius: 8rpx;
+    border-radius: 7rpx;
 }
 .r-i-img-song{
     width: 170rpx;
     height: 170rpx;
-    border-radius: 8rpx;
+    border-radius: 7rpx;
 }
 
 .r-i-name {

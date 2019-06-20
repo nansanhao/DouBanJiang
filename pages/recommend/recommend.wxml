@@ -1,2 +1,34 @@
-<!--pages/recommend/recommend.wxml-->
-<text>pages/recommend/recommend.wxml</text>
+<!-- pages/recommend/recommend.wxml -->
+<view class='swiper'>
+    <swiper indicator-dots="{{swiper.indicatorDots}}" autoplay="{{swiper.autoplay}}" interval="{{swiper.interval}}" duration="{{swiper.duration}}" style='height:320rpx'>
+        <block wx:for="{{swiper.imgUrl}}">
+            <swiper-item class="s-item">
+                <image src="{{item}}" class="swiper-img" mode="widthFix" />
+            </swiper-item>
+        </block>
+    </swiper>
+</view>
+<view class='recommend'>
+    <view class="r-movie">
+        <view bindtap="#" class='r-m-item' wx:for="{{movies}}">
+            <navigator url="/pages/detail/detail" class="r-m-img">
+                <image src='{{item.imgUrl}}' class='r-m-img' mode='aspectFill'></image>
+            </navigator>
+            <view class='r-m-name'>{{item.name}}</view>
+        </view>
+        <view bindtap="#" class='r-m-item' wx:for="{{books}}">
+            <navigator url="/pages/detail/detail" class="r-m-img">
+                <image src='{{item.imgUrl}}' class='r-m-img' mode='aspectFill'></image>
+            </navigator>
+            <view class='r-m-name'>{{item.name}}</view>
+        </view>
+    </view>
+    <view class="r-song">
+        <view bindtap="#" class='r-m-item' wx:for="{{songs}}">
+            <navigator url="/pages/detail/detail" class="r-m-img-song">
+                <image src='{{item.imgUrl}}' class='r-m-img-song' mode='aspectFill'></image>
+            </navigator>
+            <view class='r-m-name'>{{item.name}}</view>
+        </view>
+    </view>
+</view>

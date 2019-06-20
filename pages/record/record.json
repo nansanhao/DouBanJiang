@@ -1,0 +1,11 @@
+{
+    "usingComponents": {
+        "i-tabs": "../../iviewComponent/tabs/index",
+        "i-tab": "../../iviewComponent/tab/index",
+        "i-steps": "../../iviewComponent/steps/index",
+        "i-step": "../../iviewComponent/step/index",
+        "i-rate": "../../iviewComponent/rate/index",
+        "i-load-more": "../../iviewComponent/load-more/index"
+    },
+  "navigationBarTitleText": "想 - 看/听/读"
+}
