@@ -1,0 +1,13 @@
+<!--pages/comment/comment.wxml-->
+<view class='rate'>
+    <view class='r-title'>点击星星评分</view>
+    <i-cell title="基本用法">
+        <i-rate bind:change="onChange" value="{{rate}}" size="32">
+        </i-rate>
+    </i-cell>
+</view>
+<view class='comment'>
+    
+    <textarea class='c-input'  placeholder="写几句评价吧..." placeholder-style="font-size:28rpx;"/>
+    <i-button i-class="c-btn"  bind:click="handleClick" type="primary">确定提交</i-button>
+</view>

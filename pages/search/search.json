@@ -1,0 +1,13 @@
+{
+    "usingComponents": {
+        "i-tabs": "../../iviewComponent/tabs/index",
+        "i-tab": "../../iviewComponent/tab/index",
+        "i-rate": "../../iviewComponent/rate/index",
+        "i-load-more": "../../iviewComponent/load-more/index",
+        "i-row": "../../iviewComponent/row/index",
+        "i-col": "../../iviewComponent/col/index"
+    },
+    "navigationBarTitleText": "搜索",
+    "navigationBarBackgroundColor": "#2d8cf0",
+    "navigationBarTextStyle": "white"
+}

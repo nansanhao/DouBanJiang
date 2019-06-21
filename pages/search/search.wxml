@@ -1,0 +1,74 @@
+<!--pages/search/search.wxml-->
+<view class='search-wrap'>
+    <view class='search'>
+        <view class="weui-search-bar ">
+            <view class="weui-search-bar__form">
+                <view class="weui-search-bar__box">
+                    <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+                    <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{searchVal}}" focus="{{searchFocused}}" bindinput="inputTyping" bindconfirm='confirm'/>
+                    <view class="weui-icon-clear" wx:if="{{searchVal.length > 0}}" bindtap="clearInput">
+                        <icon type="clear" size="14"></icon>
+                    </view>
+                </view>
+                <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+                    <icon class="weui-icon-search" type="search" size="14"></icon>
+                    <view class="weui-search-bar__text">搜索</view>
+                </label>
+            </view>
+            <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">
+                取消
+            </view>
+        </view>
+        <view class='tab-wrap'>
+            <i-tabs current="{{ current }}" bindchange="handleChange" color="#2d8cf0" i-class="tab">
+                <i-tab key="movie" title="电 影"></i-tab>
+                <i-tab key="song" title="音 乐"></i-tab>
+                <i-tab key="book" title="书 籍"></i-tab>
+            </i-tabs>
+        </view>
+    </view>
+
+</view>
+
+<view class='content-wrap'>
+    <view class='movie tab-content' wx-if="{{current=='movie'}}">
+        <i-row>
+            <i-col span="8" i-class="movie-item" wx:for="{{movies}}">
+                <view class='m-i-wrap'>
+                    <navigator url="/pages/detail/detail" class="m-i-img">
+                        <image src='{{item.imgUrl}}' class='m-i-img' mode='aspectFill'></image>
+                    </navigator>
+                    <view class='m-i-name'>{{item.name}}</view>
+                </view>
+            </i-col>
+        </i-row>
+
+    </view>
+
+    <view class='movie tab-content' wx-if="{{current=='book'}}">
+         <i-row>
+            <i-col span="8" i-class="movie-item" wx:for="{{books}}">
+                <view class='m-i-wrap'>
+                    <navigator url="/pages/detail/detail" class="m-i-img">
+                        <image src='{{item.imgUrl}}' class='m-i-img' mode='aspectFill'></image>
+                    </navigator>
+                    <view class='m-i-name'>{{item.name}}</view>
+                </view>
+            </i-col>
+        </i-row>
+    </view>
+
+    <view class='movie tab-content' wx-if="{{current=='song'}}">
+         <i-row>
+            <i-col span="8" i-class="movie-item" wx:for="{{songs}}">
+                <view class='m-i-wrap'>
+                    <navigator url="/pages/detail/detail" class="m-i-img-song">
+                        <image src='{{item.imgUrl}}' class='m-i-img-song' mode='aspectFill'></image>
+                    </navigator>
+                    <view class='m-i-name'>{{item.name}}</view>
+                </view>
+            </i-col>
+        </i-row>
+    </view>
+</view>
+<i-load-more tip="上拉刷新" loading="{{ false }}" />

@@ -20,17 +20,20 @@
     width: 170rpx;
     height: 253rpx;
     border-radius: 7rpx;
+    box-shadow: 0 0 10rpx #cccccc
 }
 .r-i-img-song{
     width: 170rpx;
     height: 170rpx;
     border-radius: 7rpx;
+    box-shadow: 0 0 10rpx #cccccc
 }
 
 .r-i-name {
     display: block;
     font-weight: bold;
     font-size: 24rpx;
+    margin-top: 10rpx;
     margin-bottom: 10rpx;
     width: 170rpx;
     overflow: hidden;
@@ -47,7 +50,7 @@
     display: -webkit-flex;
     display: flex;
     box-sizing: border-box;
-    background-color: #00b51d;
+    background-color: #2d8cf0;
     /* border-top: 1rpx solid #d7d6dc;
     border-bottom: 1rpx solid #d7d6dc; */
 }

@@ -1,8 +1,14 @@
 /* pages/record/record.wxss */
 
-.wrap{
+.content-wrap{
     /* background-color:  rgb(249, 249, 249); */
     padding-bottom: 20rpx;
+    margin-top: 84rpx;
+}
+.tab-wrap{
+    z-index: 999;
+    position: relative;
+    
 }
 .tab-content{
     padding: 20rpx 30rpx;
@@ -34,10 +40,16 @@
     border-bottom-left-radius: 10rpx;
     
 }
+.m-img-song{
+    width: 275rpx;
+    height: 275rpx;
+    border-top-left-radius: 10rpx;
+    border-bottom-left-radius: 10rpx;
+}
 .m-i-name{
     font-weight: bold;
     font-size: 32rpx;
-    width: 380rpx;
+    width: 300rpx;
     overflow: hidden;
     white-space: nowrap;
     text-overflow:ellipsis; 

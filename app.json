@@ -1,12 +1,15 @@
 {
     "pages": [
         "pages/rank/rank",
+        "pages/search/search",
+        
+        "pages/comment/comment",
         "pages/record/record",
         "pages/recommend/recommend",
         "pages/detail/detail",
         "pages/user/user",
+        "pages/logs/logs"
         
-        "pages/logs/logs"  
     ],
     "window": {
         "backgroundTextStyle": "light",

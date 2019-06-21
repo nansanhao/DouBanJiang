@@ -1,56 +1,15 @@
-// pages/rank/rank.js
+// pages/search/search.js
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        swiper: {
-            imgUrl: [
-                "http://p1.music.126.net/u6xoXCbHTP1hQ0QG-_Jb0A==/109951164153012905.jpg",
-                "http://p1.music.126.net/fRa3OI3v1rKCUsElt_7njg==/109951164153046622.jpg",
-                "http://p1.music.126.net/889P6e8H5-57pmbPAALfBQ==/109951164152978157.jpg"
-            ],
-            indicatorDots: true,
-            autoplay: true,
-            interval: 5000,
-            duration: 1000
-        },
         searchVal: "",
-        inputShowed: false,
-        
-        moviesRank: [{
-                name: "黑衣人：全球追缉",
-                imgUrl: "https://img1.doubanio.com/view/photo/l/public/p2558701068.jpg",
-                rate: 4
-            },
-            {
-                name: "最好的我们",
-                imgUrl: "https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2557157554.jpg",
-                rate: 4
-            },
-            {
-                name: "哥斯拉2",
-                imgUrl: "https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2554370800.jpg",
-                rate: 4
-            },
-            {
-                name: "调音师",
-                imgUrl: "https://img1.doubanio.com/view/photo/m/public/p2551995207.jpg",
-                rate: 4
-            },
-            {
-                name: "黑衣人：全球追缉",
-                imgUrl: "https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2554370800.jpg",
-                rate: 4
-            },
-            {
-                name: "黑衣人：全球追缉",
-                imgUrl: "https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2554370800.jpg",
-                rate: 4
-            }
-        ],
-        moviesHot: [{
+        inputShowed: true,
+        searchFocused: false,
+        current: 'movie',
+        movies: [{
                 name: "雪暴",
                 imgUrl: "https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2554545271.jpg",
                 rate: 4
@@ -138,23 +97,26 @@ Page({
                 rate: ""
             }
         ]
+
     },
-    //点击软键盘完成按钮的回调函数
-    confirm:function(e){
-        //e.detail.value 
-        wx.navigateTo({
-            url: '/pages/search/search?wd='+e.detail.value
-        })
+    handleChange({
+        detail
+    }) {
+        this.setData({
+            current: detail.key
+        });
     },
     showInput: function() {
         this.setData({
-            inputShowed: true
+            inputShowed: true,
+            searchFocused:true
         });
     },
     hideInput: function() {
         this.setData({
             searchVal: "",
-            inputShowed: false
+            inputShowed: false,
+            searchFocused:false
         });
     },
     clearInput: function() {
@@ -167,12 +129,18 @@ Page({
             searchVal: e.detail.value
         });
     },
-
+    confirm:function(e){
+        //向后台发请求
+    },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-
+        this.setData({
+            searchVal: options.wd
+        });
+        //向后台发请求
+        console.log(options)
     },
 
     /**

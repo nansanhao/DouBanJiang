@@ -13,8 +13,8 @@
         <view class="weui-search-bar__form">
             <view class="weui-search-bar__box">
                 <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
-                <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
-                <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+                <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{searchVal}}" focus="{{inputShowed}}" bindinput="inputTyping" bindconfirm="confirm" />
+                <view class="weui-icon-clear" wx:if="{{searchVal.length > 0}}" bindtap="clearInput">
                     <icon type="clear" size="14"></icon>
                 </view>
             </view>
@@ -33,7 +33,7 @@
         <view class='rank-content'>
             <scroll-view class="scroll-view_H" scroll-x style="width: 100%">
                 <view class="rank-wrap">
-                    <view bindtap="movieItemClick" class='rank-item' wx:for="{{moviesRank}}">
+                    <view class='rank-item' wx:for="{{moviesRank}}">
                         <navigator url="/pages/detail/detail" class="r-i-img">
                             <image src='{{item.imgUrl}}' class='r-i-img' mode='aspectFill'></image>
                         </navigator>

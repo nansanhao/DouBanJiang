@@ -1,11 +1,14 @@
 <!--pages/record/record.wxml-->
-<view class='wrap'>
-    <i-tabs current="{{ current }}" bindchange="handleChange" color="#00b51d" i-class="tab">
+
+<view class='tab-wrap'>
+    <i-tabs current="{{ current }}" bindchange="handleChange" color="#2d8cf0" i-class="tab" fixed>
         <i-tab key="movie" title="电 影"></i-tab>
         <i-tab key="song" title="音 乐"></i-tab>
         <i-tab key="book" title="书 籍"></i-tab>
     </i-tabs>
-    <view class='movie tab-content'>
+</view>
+<view class='content-wrap'>
+    <view class='movie tab-content' wx-if="{{current=='movie'}}">
         <i-steps current="{{verticalCurrent}}" direction="vertical">
             <i-step icon="live_fill" wx:for="{{movies}}">
                 <view slot="title" class='m-title'>
@@ -17,6 +20,58 @@
                         <view class='m-i-name'>{{item.name+"（"+item.date+"）"}}</view>
                         <view class='m-i-tag'>标签：{{item.tags}}</view>
                         <view class='m-i-tag'>产地：{{item.origin}}</view>
+                        <view class='m-i-rate'>
+                            <view class="m-i-r-num">评分： </view>
+                            <view class='m-i-r-star'>
+                                <i-rate i-class="rate" disabled="{{true}}" value="{{item.rate}}" size="12"></i-rate>
+                            </view>
+                            <view class='m-i-r-num'>{{item.rate}}</view>
+
+                        </view>
+                    </view>
+                </navigator>
+            </i-step>
+        </i-steps>
+    </view>
+
+    <view class='movie tab-content' wx-if="{{current=='book'}}">
+        <i-steps current="{{verticalCurrent}}" direction="vertical">
+            <i-step icon="barrage_fill" wx:for="{{books}}">
+                <view slot="title" class='m-title'>
+                    {{item.viewDate}}
+                </view>
+                <navigator url="/pages/detail/detail" slot="content" class='m-wrap'>
+                    <image src='{{item.imgUrl}}' class='m-img'></image>
+                    <view class='m-info'>
+                        <view class='m-i-name'>{{item.name+"（"+item.date+"）"}}</view>
+                        <view class='m-i-tag'>作者：{{item.author}}</view>
+                        <view class='m-i-tag'>出版社：{{item.press}}</view>
+                        <view class='m-i-rate'>
+                            <view class="m-i-r-num">评分： </view>
+                            <view class='m-i-r-star'>
+                                <i-rate i-class="rate" disabled="{{true}}" value="{{item.rate}}" size="12"></i-rate>
+                            </view>
+                            <view class='m-i-r-num'>{{item.rate}}</view>
+
+                        </view>
+                    </view>
+                </navigator>
+            </i-step>
+        </i-steps>
+    </view>
+
+    <view class='movie tab-content' wx-if="{{current=='song'}}">
+        <i-steps current="{{verticalCurrent}}" direction="vertical">
+            <i-step icon="customerservice_fill" wx:for="{{songs}}">
+                <view slot="title" class='m-title'>
+                    {{item.listenDate}}
+                </view>
+                <navigator url="/pages/detail/detail" slot="content" class='m-wrap'>
+                    <image src='{{item.imgUrl}}' class='m-img-song'></image>
+                    <view class='m-info'>
+                        <view class='m-i-name'>{{item.name}}</view>
+                        <view class='m-i-tag'>歌手：{{item.singer}}</view>
+                        <view class='m-i-tag'>发行时间：{{item.releaseDate}}</view>
                         <view class='m-i-rate'>
                             <view class="m-i-r-num">评分： </view>
                             <view class='m-i-r-star'>

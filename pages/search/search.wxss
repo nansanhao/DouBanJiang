@@ -1,0 +1,145 @@
+/* pages/search/search.wxss */
+.search{
+    position: fixed;
+    width: 100%;
+}
+.search-wrap{
+    position: relative;
+}
+.content-wrap{
+    /* background-color:  rgb(249, 249, 249); */
+    padding-bottom: 20rpx;
+    padding-top: 200rpx;
+}
+.tab-wrap{
+    /* z-index: 999;
+    position: relative; */
+   padding-top: 10rpx;
+   background-color: white;
+    
+}
+.tab-content{
+    padding: 20rpx 30rpx;
+}
+.movie-item{
+    text-align: center;
+    
+}
+.m-i-wrap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.m-i-img {
+    width: 200rpx;
+    height: 297rpx;
+    border-radius: 10rpx;
+    box-shadow:0 0 16rpx #b4b3b3;
+}
+.m-i-img-song{
+    width: 200rpx;
+    height: 200rpx;
+    border-radius: 10rpx;
+    box-shadow:0 0 16rpx #b4b3b3;
+}
+
+.m-i-name {
+    display: block;
+    font-weight: bold;
+    font-size: 26rpx;
+    margin-top: 10rpx;
+    margin-bottom: 30rpx;
+    width: 200rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow:ellipsis; 
+}
+
+
+
+
+
+/* WEUI */
+
+.weui-search-bar {
+    position: relative;
+    padding: 8px 10px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    box-sizing: border-box;
+    background-color: #2d8cf0;
+    /* border-top: 1rpx solid #d7d6dc;
+    border-bottom: 1rpx solid #d7d6dc; */
+}
+
+.weui-search-bar__text {
+    display: inline-block;
+    font-size: 14px;
+    vertical-align: middle;
+}
+
+.weui-search-bar__form {
+    position: relative;
+    -webkit-box-flex: 1;
+    -webkit-flex: auto;
+    flex: auto;
+    border-radius: 5px;
+    background: #fff;
+    border: 1rpx solid #e6e6ea;
+}
+
+.weui-search-bar__box {
+    position: relative;
+    padding-left: 30px;
+    padding-right: 30px;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+.weui-search-bar__input {
+    height: 28px;
+    line-height: 28px;
+    font-size: 14px;
+}
+
+.weui-search-bar__label {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    border-radius: 3px;
+    text-align: center;
+    color: #9b9b9b;
+    background: #fff;
+    line-height: 28px;
+}
+
+.weui-search-bar__cancel-btn {
+    margin-left: 10px;
+    line-height: 28px;
+    color: white;
+    white-space: nowrap;
+}
+
+.weui-icon-search_in-box {
+    position: absolute;
+    left: 10px;
+    top: 7px;
+}
+
+.weui-icon-clear {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 7px 8px;
+    font-size: 0;
+}
+
+.weui-icon-search {
+    margin-right: 8px;
+    font-size: inherit;
+}

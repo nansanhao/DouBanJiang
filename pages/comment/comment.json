@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+      "i-rate": "../../iviewComponent/rate/index",
+      "i-button": "../../iviewComponent/button/index"
+  },
+  "navigationBarTitleText": "评分"
+}

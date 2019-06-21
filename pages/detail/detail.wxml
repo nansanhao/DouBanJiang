@@ -11,7 +11,7 @@
                     <i-icon type="like" size='20' />
                     想看
                 </i-button>
-                <i-button bind:click="handleClick" type="warning" size="small" i-class="m-i-b-item">
+                <i-button bind:click="handleViewed" type="warning" size="small" i-class="m-i-b-item">
                     <i-icon type="collection" size='20' />
                     看过
                 </i-button>
