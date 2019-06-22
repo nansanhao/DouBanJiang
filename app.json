@@ -1,14 +1,19 @@
 {
     "pages": [
         "pages/rank/rank",
+        "pages/user/user",
+        "pages/index/index",
+        "pages/logs/logs",
+        
+        
         "pages/search/search",
         
         "pages/comment/comment",
         "pages/record/record",
         "pages/recommend/recommend",
-        "pages/detail/detail",
-        "pages/user/user",
-        "pages/logs/logs"
+        "pages/detail/detail"
+        
+        
         
     ],
     "window": {

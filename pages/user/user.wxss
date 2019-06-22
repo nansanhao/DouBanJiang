@@ -1,5 +1,6 @@
 /* pages/user/user.wxss */
-.u-avatar{
+
+.u-avatar {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -8,25 +9,26 @@
     height: 380rpx;
     padding-bottom: 30rpx;
     /* background-color: #00B51D; */
-    background-repeat:no-repeat; 
-    background-size:100% 100%;
-    background-image: url("https://wx3.sinaimg.cn/mw690/007PAyUely1g45cfkfq22j319r0u04qq.jpg?tdsourcetag=s_pctim_aiomsg")
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url("https://wx3.sinaimg.cn/mw690/007PAyUely1g45cfkfq22j319r0u04qq.jpg?tdsourcetag=s_pctim_aiomsg");
 }
-.u-a-img{
+
+.u-a-img {
     width: 180rpx;
     height: 180rpx;
     border-radius: 50%;
-    border:4px solid white;
-    
+    border: 4px solid white;
 }
-.u-name{
+
+.u-name {
     color: white;
     font-weight: bold;
     padding-top: 10rpx;
-    font-size: 40rpx
-    
+    font-size: 40rpx;
 }
-.u-logout{
+
+.u-logout {
     /* justify-self: flex-end; */
     align-self: flex-end;
     font-size: 26rpx;
@@ -36,24 +38,89 @@
     border-radius: 8rpx;
     color: white;
 }
-.u-l-wrap{
+
+.u-l-wrap {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.list{
-    
+.list {
 }
-.l-title{
+
+.l-title {
     padding: 20rpx 30rpx;
     font-weight: bold;
     font-size: 32rpx;
 }
-.l-item:active{
-    background-color:rgba(0, 0, 0, 0.1);
-opacity:0.7;
 
+.l-item:active {
+    background-color: rgba(0, 0, 0, 0.1);
+    opacity: 0.7;
+}
 
+.header{
+    padding: 30rpx 40rpx;
+    color: black;
+    text-align: left;
+}
+.h-app{
+    
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.h-a-name{
+    font-size: 32rpx;
+    font-weight: bold;
+    padding: 0 30rpx 0 10rpx;
+}
+.h-a-add{
+    color: rgb(71, 71, 71);
+    font-size: 26rpx;
+}
+.h-note{
+    font-size: 40rpx;
+    font-weight: bold;
+    
+    padding: 20rpx 0;
+}
+.h-user{
+    display: flex;
+    padding: 10rpx 0;
+    border-top:1px solid rgb(240, 240, 240);
+    border-bottom:1px solid rgb(240, 240, 240);
+    margin-top: 30rpx;
+    margin-bottom: 50rpx;
 
+}
+.h-u-avatar{
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 4rpx;
+}
+.h-u-info{
+    flex: 1;
+    padding: 4rpx 30rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.h-u-i-note{
+    font-size: 28rpx;
+    font-weight: bold;
+}
+.h-u-i-name{
+    font-size: 24rpx;
+    color: rgb(85, 85, 85);
+
+}
+.h-action{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20rpx;
+}
+.h-a-btn{
+    width: 300rpx;
+    margin: 0!important;
 }

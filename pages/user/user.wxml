@@ -1,7 +1,7 @@
 <!--pages/user/user.wxml-->
 <view class='user'>
     <view class='u-avatar'>
-        <image class='u-a-img' src='{{user.avatar}}' mode="aspectFill"></image>
+        <image class='u-a-img' src='{{user.avatar}}' mode="aspectFill" bindtap='authorize'></image>
         <view class='u-name'>
             {{user.name}}
         </view>
@@ -33,4 +33,27 @@
     </i-cell-group>
 
 </view>
+<i-action-sheet visible="{{ authVisible }}" bind:click="authClick" mask-closable="{{ false }}">
+    <view slot="header" class='header'>
+        <view class='h-app'>
+            <i-icon type="businesscard_fill" size='40' color="#000000"/>
+            <text class='h-a-name'>豆瓣酱书影音社区</text>
+            <text class='h-a-add'>申请</text>
+        </view>
+        <view class='h-note'>获取你的昵称，头像</view>
+        <view class='h-user'>
+            <image src="{{user.avatar}}" class='h-u-avatar' mode="aspectFill"></image>
+            <view class='h-u-info'>
+                <view class='h-u-i-note'>微信个人信息</view>
+                <view class='h-u-i-name'>{{user.name}}</view>
+            </view>
+        </view>
+        <view class='h-action'>
+            <i-button i-class='h-a-btn' bind:click="authCancel" >取消</i-button>
+            <i-button i-class='h-a-btn' bind:click="authAllow" type="success">允许</i-button>
+        </view>
+    </view>
+</i-action-sheet>
+
+<i-message id="message" />
 <i-load-more tip="Powered by Jiang" loading="{{ false }}" />
