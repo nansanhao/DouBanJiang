@@ -1,5 +1,5 @@
 const config = {
-    BASE_URL: "http://cyice.cn/"
+    BASE_URL: "http://cyice.cn"
 };
 
 /**
@@ -29,7 +29,7 @@ function promiseRequest(method = 'GET', path, showLoading = false, data,auth="fa
                 url: config.BASE_URL + path,
                 data: data,
                 header: {
-                    'Content-Type': 'application/x-www-form-urlencoded', // 默认值
+                    'Content-Type': 'application/json', // 默认值
                     //'cookie': wx.getStorageSync("sessionid"),
                     //'token': wx.getStorageSync("token"),
                     'Token': getApp().globalData.token,

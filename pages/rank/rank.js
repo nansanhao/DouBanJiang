@@ -19,10 +19,10 @@ Page({
         },
         searchVal: "",
         inputShowed: false,
-        
+
         moviesRank: [{
                 name: "黑衣人：全球追缉",
-                imgUrl: "https://img1.doubanio.com/view/photo/l/public/p2558701068.jpg",
+                imgUrl: "https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2558701068.jpg",
                 rate: 4
             },
             {
@@ -141,10 +141,10 @@ Page({
         ]
     },
     //点击软键盘完成按钮的回调函数
-    confirm:function(e){
+    confirm: function(e) {
         //e.detail.value 
         wx.navigateTo({
-            url: '/pages/search/search?wd='+e.detail.value
+            url: '/pages/search/search?wd=' + e.detail.value
         })
     },
     showInput: function() {
@@ -173,7 +173,17 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-        api.request
+       
+        api.request("GET", "/rank", false).then((res) => {
+            console.log(res.data);
+            this.setData({
+                moviesRank: res.data.new_movies,
+                moviesHot: res.data.hot_movies,
+                books: res.data.hot_books,
+                songs: res.data.hot_music
+            })
+
+        })
     },
 
     /**

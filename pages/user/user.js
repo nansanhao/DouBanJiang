@@ -1,6 +1,8 @@
 // pages/user/user.js
 const {$Message} = require('../../iviewComponent/base/index');
 const api = require('../../services/api');
+const util = require('../../utils/util');
+
 Page({
 
     /**
@@ -9,7 +11,8 @@ Page({
     data: {
         user: {
             avatar: "https://img3.doubanio.com/icon/ul189518171-1.jpg",
-            name: "七个南三号"
+            name: "七个南三",
+            id:"1"
         },
         authVisible: false,
 
@@ -56,8 +59,36 @@ Page({
 
     authorize: function() {
         console.log("授权");
+        
         this.setData({
             authVisible: true
+        });
+    },
+    bindGetUserInfo:function(e){
+        let that=this;
+        let userInfo = e.detail.userInfo;
+        wx.login({
+            success(res) {
+                let data={
+                    code:res.code,
+                    user: userInfo
+                }
+                console.log(data)
+                api.request("POST","/login",false,data).then((res)=>{
+                    console.log(res.data.openid);
+                    let user={
+                        name:userInfo.nickName,
+                        avatar: userInfo.avatarUrl,
+                        id: res.data.openid
+                    }
+                    
+                    getApp().globalData.userInfo = user;
+                    
+                    that.setData({
+                        user
+                    })
+                })
+            }
         });
     },
 
@@ -72,9 +103,7 @@ Page({
         } else {
 
         }
-        api.request("GET", "/movies/1",false).then((res) => {
-            console.log(res.data);
-        })
+        
     },
 
     /**

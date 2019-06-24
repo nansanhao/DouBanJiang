@@ -50,7 +50,7 @@
         </view>
         <view class='h-action'>
             <i-button i-class='h-a-btn' bind:click="authCancel" >取消</i-button>
-            <i-button i-class='h-a-btn' bind:click="authAllow" type="success">允许</i-button>
+            <i-button i-class='h-a-btn' bind:click="authAllow" type="success" open-type="getUserInfo" bind:getuserinfo="bindGetUserInfo">允许</i-button>
         </view>
     </view>
 </i-action-sheet>

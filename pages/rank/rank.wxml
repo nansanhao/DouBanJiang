@@ -34,10 +34,10 @@
             <scroll-view class="scroll-view_H" scroll-x style="width: 100%">
                 <view class="rank-wrap">
                     <view class='rank-item' wx:for="{{moviesRank}}">
-                        <navigator url="/pages/detail/detail" class="r-i-img">
-                            <image src='{{item.imgUrl}}' class='r-i-img' mode='aspectFill'></image>
+                        <navigator url="{{'/pages/detail/detail?id='+item.mo_id+'&type=movie'}}" class="r-i-img">
+                            <image src='{{item.mo_picture}}' class='r-i-img' mode='aspectFill'></image>
                         </navigator>
-                        <view class='r-i-name'>{{item.name}}</view>
+                        <view class='r-i-name'>{{item.mo_name}}</view>
                     </view>
                 </view>
             </scroll-view>
@@ -50,10 +50,10 @@
             <scroll-view class="scroll-view_H" scroll-x style="width: 100%">
                 <view class="rank-wrap">
                     <view bindtap="movieItemClick" class='rank-item' wx:for="{{moviesHot}}">
-                        <navigator url="/pages/detail/detail" class="r-i-img">
-                            <image src='{{item.imgUrl}}' class='r-i-img' mode='aspectFill'></image>
+                        <navigator url="{{'/pages/detail/detail?id='+item.mo_id+'&type=movie'}}" class="r-i-img">
+                            <image src='{{item.mo_picture}}' class='r-i-img' mode='aspectFill'></image>
                         </navigator>
-                        <view class='r-i-name'>{{item.name}}</view>
+                        <view class='r-i-name'>{{item.mo_name}}</view>
                     </view>
                 </view>
             </scroll-view>
@@ -66,10 +66,10 @@
             <scroll-view class="scroll-view_H" scroll-x style="width: 100%">
                 <view class="rank-wrap">
                     <view bindtap="movieItemClick" class='rank-item' wx:for="{{books}}">
-                        <navigator url="/pages/detail/detail" class="r-i-img">
-                            <image src='{{item.imgUrl}}' class='r-i-img' mode='aspectFill'></image>
+                        <navigator url="{{'/pages/detail/detail?id='+item.b_id+'&type=book'}}" class="r-i-img">
+                            <image src='{{item.b_picture}}' class='r-i-img' mode='aspectFill'></image>
                         </navigator>
-                        <view class='r-i-name'>{{item.name}}</view>
+                        <view class='r-i-name'>{{item.b_name}}</view>
                     </view>
                 </view>
             </scroll-view>
@@ -82,10 +82,10 @@
             <scroll-view class="scroll-view_H" scroll-x style="width: 100%">
                 <view class="rank-wrap">
                     <view bindtap="movieItemClick" class='rank-item' wx:for="{{songs}}">
-                        <navigator url="/pages/detail/detail" class="r-i-img-song">
-                            <image src='{{item.imgUrl}}' class='r-i-img-song' mode='aspectFill'></image>
+                        <navigator url="{{'/pages/detail/detail?id='+item.mu_id+'&type=song'}}" class="r-i-img-song">
+                            <image src='{{item.mu_picture}}' class='r-i-img-song' mode='aspectFill'></image>
                         </navigator>
-                        <view class='r-i-name'>{{item.name}}</view>
+                        <view class='r-i-name'>{{item.mu_name}}</view>
                     </view>
                 </view>
             </scroll-view>
