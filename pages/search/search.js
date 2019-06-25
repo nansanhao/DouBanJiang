@@ -1,14 +1,19 @@
 // pages/search/search.js
+const api = require('../../services/api');
+
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
+        offset:0,
+        limit:9,
+        tip:"上拉刷新",
         searchVal: "",
         inputShowed: true,
         searchFocused: false,
-        current: 'movie',
+        current: 'Movie',
         movies: [{
                 name: "雪暴",
                 imgUrl: "https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2554545271.jpg",
@@ -102,21 +107,30 @@ Page({
     handleChange({
         detail
     }) {
-        this.setData({
-            current: detail.key
+        let that=this;
+        let route = "/search?wd=" + that.data.searchVal + "&type=" + detail.key + "&offset=0&limit=9"
+        api.request("GET", route).then((res) => {
+            let temp={};
+            temp.current = detail.key;
+            let type = detail.key.toLowerCase()+"s";
+            temp[type]=res.data;
+            temp.offset = 0 + that.data.limit;
+            temp.tip = "上拉刷新"
+            that.setData(temp);
         });
+        
     },
     showInput: function() {
         this.setData({
             inputShowed: true,
-            searchFocused:true
+            searchFocused: true
         });
     },
     hideInput: function() {
         this.setData({
             searchVal: "",
             inputShowed: false,
-            searchFocused:false
+            searchFocused: false
         });
     },
     clearInput: function() {
@@ -129,16 +143,37 @@ Page({
             searchVal: e.detail.value
         });
     },
-    confirm:function(e){
+    confirm: function(e) {
         //向后台发请求
+        let that=this;
+        let route = "/search?wd=" + this.data.searchVal + "&type=" + this.data.current + "&offset=0&limit=9";
+        api.request("GET", route).then((res) => {
+            let temp={};
+            let type = that.data.current.toLowerCase()+"s";
+            temp[type]=res.data;
+            temp.offset = 0 + that.data.limit;
+            temp.tip = "上拉刷新"
+            that.setData(temp);
+        });
+        
+
     },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-        this.setData({
-            searchVal: options.wd
+        let that=this;
+        api.request("GET", "/search?wd=" + options.wd + "&type=Movie&offset=0&limit=9").then((res) => {
+            let offset = that.data.offset + that.data.limit;
+            that.setData({
+                searchVal: options.wd,
+                movies: res.data,
+                offset
+            });
         });
+
+
+
         //向后台发请求
         console.log(options)
     },
@@ -182,7 +217,17 @@ Page({
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function() {
-
+        let that = this;
+        let route = "/search?wd=" + this.data.searchVal + "&type=" + this.data.current + "&offset="+that.data.offset+"&limit=9";
+        api.request("GET", route).then((res) => {
+            let temp = {};
+            let type = that.data.current.toLowerCase() + "s";
+            temp[type] = that.data[type].concat(res.data);
+            temp.offset = that.data.offset + that.data.limit;
+            temp.tip="没有更多数据"
+            that.setData(temp);
+            
+        });
     },
 
     /**

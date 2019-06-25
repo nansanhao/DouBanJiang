@@ -49,6 +49,8 @@
 >     session_id:""
 > }
 > ```
+>
+>GET  /user/:id/comments
 
 详情
 

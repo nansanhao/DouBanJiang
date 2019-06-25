@@ -10,8 +10,8 @@ Page({
      */
     data: {
         user: {
-            avatar: "https://img3.doubanio.com/icon/ul189518171-1.jpg",
-            name: "七个南三",
+            avatar: "/images/icons/yonghu.png",
+            name: "点击头像登陆",
             id:"1"
         },
         authVisible: false,
@@ -59,10 +59,33 @@ Page({
 
     authorize: function() {
         console.log("授权");
-        
         this.setData({
             authVisible: true
         });
+    },
+    wantClick:function(){
+        let user = getApp().globalData.userInfo;
+        if (user == null) {
+            this.setData({
+                authVisible: true
+            });
+        } else {
+            wx.navigateTo({
+                url:"/pages/record/record?isWanted=true"
+            })
+        }
+    },
+    seenClick:function(){
+        let user = getApp().globalData.userInfo;
+        if (user == null) {
+            this.setData({
+                authVisible: true
+            });
+        } else {
+            wx.navigateTo({
+                url: "/pages/record/record?isWanted=false"
+            })
+        }
     },
     bindGetUserInfo:function(e){
         let that=this;
@@ -96,7 +119,9 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-        if (options.type == "auth") {
+        
+        let user = getApp().globalData.userInfo;
+        if (user==null) {
             this.setData({
                 authVisible: true
             });

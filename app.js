@@ -31,6 +31,5 @@ App({
     },
     globalData: {
         userInfo: null,
-        token:"temp"
     }
 })

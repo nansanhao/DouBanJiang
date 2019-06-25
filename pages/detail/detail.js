@@ -1,14 +1,15 @@
 // pages/detail/detail.js
 const api = require('../../services/api');
+const { $Toast } = require('../../iviewComponent/base/index');
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        type:"",
-        rate:0,
-        introduction:"",
+        type: "",
+        rate: 0,
+        introduction: "",
         movie: {
             name: "最好的我们",
             imgUrl: "https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2557157554.jpg",
@@ -57,8 +58,8 @@ Page({
                 content: "女Vocal是来自美国🇺🇸年仅17岁的Noah Cyrus,声线清纯自然,同时塞勒斯是名演员,年纪轻轻非常有才华。男Vocal是来自英国🇬🇧的Digital Farm Animals。艾伦沃克凭借自己超高的人气一举夺得DJ Mag百大第17位！"
             }
         ],
-        song:{},
-        book:{}
+        song: {},
+        book: {}
 
     },
 
@@ -67,34 +68,90 @@ Page({
      */
     onLoad: function(options) {
         let id = options.id;
-        
-        api.request("GET", "/"+options.type+"s/" + options.id, false).then((res) => {
+
+        api.request("GET", "/" + options.type + "s/" + options.id, false).then((res) => {
             // let temp = res.data.mo_introduction;
             // temp=temp.replace("/n","")
             // res.data.mo_introduction=temp;
-            let detail={};
-            detail[options.type]=res.data;
-            detail.type=options.type;
-            let pres={
-                book:"b_",
-                movie:"mo_",
-                song:"mu_"
+            let detail = {};
+            detail[options.type] = res.data;
+            detail.type = options.type;
+            let pres = {
+                book: "b_",
+                movie: "mo_",
+                song: "mu_"
             };
-            let pre="";
+            let pre = "";
             pre = pres[options.type] + "introduction";
-            detail.introduction=res.data[pre];
-            pre = pres[options.type]+ "score";
-            detail.rate=res.data[pre]/2;
+            detail.introduction = res.data[pre];
+            pre = pres[options.type] + "score";
+            detail.rate = res.data[pre] / 2;
             //detail.comments = res.data.comments;
             this.setData(detail)
 
         })
-        
+
     },
     handleViewed: function(e) {
-        wx.navigateTo({
-            url: '/pages/comment/comment'
-        })
+        let user = getApp().globalData.userInfo;
+        if (user == null) {
+            wx.switchTab({
+                url: '/pages/user/user'
+            })
+        } else {
+            let ids = {
+                book: "b_id",
+                movie: "mo_id",
+                song: "mu_id"
+            };
+            let item = this.data[this.data.type];
+            let id = item[ids[this.data.type]];
+            wx.navigateTo({
+                url: '/pages/comment/comment?type=' + this.data.type + "&id=" + id
+            })
+        }
+
+    },
+    handleClick: function() {
+        let user = getApp().globalData.userInfo;
+        if (user == null) {
+            wx.switchTab({
+                url: '/pages/user/user'
+            })
+        } else {
+
+            let types = {
+                book: "Book",
+                movie: "Movie",
+                song: "Song"
+            };
+            let ids = {
+                book: "b_id",
+                movie: "mo_id",
+                song: "mu_id"
+            };
+            let item = this.data[this.data.type];
+            let id = item[ids[this.data.type]];
+            let data = {
+                id: id,
+                type: types[this.data.type],
+                session_id: getApp().globalData.userInfo.id,
+            }
+            api.request("POST","/want",false,data).then((res)=>{
+                if(res.data=="ok"){
+                    $Toast({
+                        content: '标记为想看成功！',
+                        type: 'success'
+                    });
+                }else{
+                    $Toast({
+                        content: '您已经标记过！',
+                        type: 'warning'
+                    });
+                }
+            })
+        }
+
     },
     /**
      * 生命周期函数--监听页面初次渲染完成

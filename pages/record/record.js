@@ -1,17 +1,19 @@
 // pages/record/record.js
+const api = require('../../services/api');
+
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        current: 'song',
+        current: 'Movie',
         verticalCurrent: 0,
         movies: [{
                 name: "雪暴",
                 imgUrl: "https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2554545271.jpg",
                 rate: 4.7,
-                date:"2019",
+                date: "2019",
                 viewDate: "2019-10-03",
                 tags: "喜剧 动作 科幻",
                 origin: "美国",
@@ -67,15 +69,14 @@ Page({
 
             }
         ],
-        books: [
-            {
+        books: [{
                 name: "一只计划逃跑的蛋",
                 imgUrl: "https://img3.doubanio.com/view/subject/m/public/s33297595.jpg",
                 rate: 3.2,
                 date: "2019",
                 viewDate: "2019-01-11",
                 author: "康华 著 / 耿艾慈 绘",
-                press:"广西师范大学出版社"
+                press: "广西师范大学出版社"
             },
             {
                 name: "犹大之窗",
@@ -114,8 +115,7 @@ Page({
                 press: "中信出版集团"
             }
         ],
-        songs: [
-            {
+        songs: [{
                 name: "Bo doubtoubtoubtoubtoubt",
                 imgUrl: "http://p2.music.126.net/ucKEvxKIveuKXZLlCq5kOQ==/109951164156198022.jpg?param=130y130",
                 rate: 3.2,
@@ -169,6 +169,26 @@ Page({
     handleChange({
         detail
     }) {
+        let user = getApp().globalData.userInfo;
+        
+        let route="";
+        if(this.data.isWanted){
+            route = "/" + detail.key.toLowerCase() + "s/want?session_id=" + user.id + "&offset=0&limit=10";
+        }else{
+            let types = {
+                Movie: "/movies/seen",
+                Song: "/songs/listened",
+                Book: "/books/viewed"
+            };
+            route = types[detail.key] + "?session_id=" + user.id + "&offset=0&limit=10"
+        }
+        console.log(route)
+        api.request("GET",route).then((res) => {
+            let type = this.data.current.toLowerCase()+"s";
+            let temp={};
+            temp[type]=res.data.reverse();
+            this.setData(temp)
+        })
         this.setData({
             current: detail.key
         });
@@ -179,15 +199,34 @@ Page({
      */
     onLoad: function(options) {
         console.log(options)
-        let title='';
-        if (options.isWanted=='true'){
-            title ="想 - 看/听/读"
-        }else{
-            title ="看/听/读 - 过"
+        let title = '';
+
+        let user = getApp().globalData.userInfo;
+
+        if (options.isWanted == 'true') {
+            title = "想 - 看/听/读"
+            api.request("GET", "/movies/want?session_id=" + user.id + "&offset=0&limit=10").then((res) => {
+                this.setData({
+                    movies: res.data.reverse()
+                })
+            })
+        } else {
+            title = "看/听/读 - 过"
+            api.request("GET", "/movies/seen?session_id=" + user.id + "&offset=0&limit=10").then((res) => {
+                this.setData({
+                    movies: res.data.reverse()
+                })
+            })
         }
         wx.setNavigationBarTitle({
             title: title
         })
+        this.setData(options);
+
+
+
+
+
     },
 
     /**

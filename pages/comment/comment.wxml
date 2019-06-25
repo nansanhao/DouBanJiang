@@ -8,6 +8,6 @@
 </view>
 <view class='comment'>
     
-    <textarea class='c-input'  placeholder="写几句评价吧..." placeholder-style="font-size:28rpx;"/>
-    <i-button i-class="c-btn"  bind:click="handleClick" type="primary">确定提交</i-button>
+    <textarea class='c-input' bindinput="commentInput" value="{{comment}}"  placeholder="写几句评价吧..." placeholder-style="font-size:28rpx;"/>
+    <i-button i-class="c-btn"  bind:click="commentSubmit" type="primary" >确定提交</i-button>
 </view>

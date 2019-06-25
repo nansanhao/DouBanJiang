@@ -1,5 +1,5 @@
 const config = {
-    BASE_URL: "http://cyice.cn"
+    BASE_URL: "https://cyice.cn"
 };
 
 /**
@@ -9,7 +9,7 @@ const config = {
  * @param {string} method 请求的方法
  * @param {boolean} showLoading 过程中是否展示加载层
  */
-function promiseRequest(method = 'GET', path, showLoading = false, data,auth="false",header = {}) {
+function promiseRequest(method = 'GET', path, showLoading = false, data,header = {}) {
     return new Promise((reslove, reject) => {
 
         //1.展示加载层
@@ -18,38 +18,31 @@ function promiseRequest(method = 'GET', path, showLoading = false, data,auth="fa
                 title: '努力中...'
             });
         }
-        let token = getApp().globalData.token;
-        if (token == ""&&auth==true) {
-            wx.navigateTo({
-                url: '/pages/user/user?type="auth"'
-            }); //如果没有授权,需要重新跳转到授权页面
-        } else {
-            wx.request({
-                method: method,
-                url: config.BASE_URL + path,
-                data: data,
-                header: {
-                    'Content-Type': 'application/json', // 默认值
-                    //'cookie': wx.getStorageSync("sessionid"),
-                    //'token': wx.getStorageSync("token"),
-                    'Token': getApp().globalData.token,
-                    ...header
-                },
-                success: (res) => {
-                    reslove(res);
-                },
-                fail: (err) => {
-                    wx.showToast({
-                        title: '请求错误',
-                        icon: "none"
-                    });
-                    reject(err);
-                },
-                complete: () => {
-                    wx.hideLoading();
-                }
-            })
-        }
+        let user = getApp().globalData.userInfo;
+        wx.request({
+            method: method,
+            url: config.BASE_URL + path,
+            data: data,
+            header: {
+                'Content-Type': 'application/json', // 默认值
+                //'cookie': wx.getStorageSync("sessionid"),
+                //'token': wx.getStorageSync("token"),
+                ...header
+            },
+            success: (res) => {
+                reslove(res);
+            },
+            fail: (err) => {
+                wx.showToast({
+                    title: '请求错误',
+                    icon: "none"
+                });
+                reject(err);
+            },
+            complete: () => {
+                wx.hideLoading();
+            }
+        })
 
     });
 }

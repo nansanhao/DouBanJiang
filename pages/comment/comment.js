@@ -1,11 +1,16 @@
 // pages/comment/comment.js
+const api = require('../../services/api');
+
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        rate:0
+        rate:0,
+        type:"",
+        id:"",
+        comment:""
     },
     onChange:function(e){
         const index = e.detail.index;
@@ -13,11 +18,40 @@ Page({
             'rate': index
         })
     },
+    commentInput:function(e){
+        this.setData({
+            comment: e.detail.value
+        })
+    },
+    commentSubmit:function(){
+        let types={
+            book:"Book",
+            movie:"Movie",
+            song:"Song"
+        }
+        let data={
+            type: types[this.data.type],
+            id:this.data.id,
+            session_id: getApp().globalData.userInfo.id,
+            score:this.data.rate,
+            comment:this.data.comment
+        };
+        api.request("POST", "/comment" , false,data).then((res) => {
+            console.log(res.data)
+            wx.navigateBack({
+                delta: 1
+            })
+            
+
+        })
+
+        
+    },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        this.setData(options)
     },
 
     /**
