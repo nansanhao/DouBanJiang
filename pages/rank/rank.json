@@ -4,10 +4,10 @@
       "i-panel": "../../iviewComponent/panel/index",
       "i-icon": "../../iviewComponent/icon/index"
   },
-  "navigationBarBackgroundColor":"#2d8cf0",
+  "navigationBarBackgroundColor":"#FF6C37",
   "navigationBarTitleText":"榜单",
   "navigationBarTextStyle":"white",
-  "backgroundColorTop": "#2d8cf0",
+  "backgroundColorTop": "#FF6C37",
   "backgroundColorBottom":"#ffffff"
   
 }

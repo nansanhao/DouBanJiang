@@ -7,7 +7,7 @@
         <view class='u-name'>
             {{user.name}}
         </view>
-        <view class='u-logout'>
+        <view class='u-logout' bindtap='logout'>
             <view class='u-l-wrap'>
                 <i-icon type="trash" size="18" color='#ffffff' />退出
             </view>

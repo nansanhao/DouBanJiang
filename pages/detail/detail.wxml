@@ -6,7 +6,13 @@
             <view class='m-i-name'>{{movie.mo_name}}</view>
             <view class='m-i-date'>上映日期：{{movie.mo_date}}</view>
             <view class='m-i-tag'>{{"片长:"+movie.mo_length}}</view>
-            <view class='m-i-btn'>
+            <view class='m-i-btn' wx-if="{{isSeen}}">
+                <i-button bind:click="handleViewed"  size="small" type="info" >
+                    <i-icon type="collection_fill" size='20' />
+                    已看过
+                </i-button>
+            </view>
+            <view class='m-i-btn' wx-if="{{!isSeen}}">
                 <i-button bind:click="handleClick" type="success" size="small" i-class="m-i-b-item">
                     <i-icon type="like" size='20' />
                     想看
@@ -24,7 +30,13 @@
             <view class='m-i-name'>{{song.mu_name}}</view>
             <view class='m-i-date'>发行日期：{{song.mu_date}}</view>
             <view class='m-i-tag'>{{"歌手："+song.mu_singer}}</view>
-            <view class='m-i-btn'>
+            <view class='m-i-btn' wx-if="{{isSeen}}">
+                <i-button bind:click="handleViewed"  size="small" type="info">
+                    <i-icon type="collection" size='20' />
+                    已听过
+                </i-button>
+            </view>
+            <view class='m-i-btn' wx-if="{{!isSeen}}">
                 <i-button bind:click="handleClick" type="success" size="small" i-class="m-i-b-item">
                     <i-icon type="like" size='20' />
                     想听
@@ -42,7 +54,14 @@
             <view class='m-i-name'>{{book.b_name}}</view>
             <view class='m-i-date'>出版日期：{{book.b_date}}</view>
             <view class='m-i-tag'>{{"作者："+book.b_writer}}</view>
-            <view class='m-i-btn'>
+            <view class='m-i-btn' wx-if="{{isSeen}}">
+                <i-button bind:click="handleViewed"  size="small" type="info">
+                    <i-icon type="collection" size='20' />
+                    已看过
+                </i-button>
+            </view>
+            <view class='m-i-btn' wx-if="{{!isSeen}}">
+
                 <i-button bind:click="handleClick" type="success" size="small" i-class="m-i-b-item">
                     <i-icon type="like" size='20' />
                     想看
@@ -79,18 +98,18 @@
             <view wx:for="{{comments}}" class="c-c-item">
                 <view class="item-user">
                     <view class="i-u-wrap">
-                        <image class="i-u-avatar" src="{{item.user.avatar}}" mode="aspectFill"></image>
+                        <image class="i-u-avatar" src="{{item.user_picture}}" mode="aspectFill"></image>
                         <view class="i-u-info">
-                            <view class="i-u-i-name">{{item.user.name}}</view>
+                            <view class="i-u-i-name">{{item.user_name}}</view>
                             <view class="i-u-i-rate">
-                                <i-rate disabled="{{true}}" value="{{item.rate}}" size="10"></i-rate>
+                                <i-rate disabled="{{true}}" value="{{item.score/2}}" size="10"></i-rate>
                             </view>
                         </view>
                     </view>
                     <view class="i-u-date">{{item.date}}</view>
                 </view>
                 <view class="item-content">
-                    <text>{{item.content}}</text>
+                    <text>{{item.comment}}</text>
                 </view>
             </view>
         </view>

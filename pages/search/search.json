@@ -8,6 +8,6 @@
         "i-col": "../../iviewComponent/col/index"
     },
     "navigationBarTitleText": "搜索",
-    "navigationBarBackgroundColor": "#2d8cf0",
+    "navigationBarBackgroundColor": "#FF6C37",
     "navigationBarTextStyle": "white"
 }

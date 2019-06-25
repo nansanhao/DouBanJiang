@@ -20,7 +20,7 @@
             </view>
         </view>
         <view class='tab-wrap'>
-            <i-tabs current="{{ current }}" bindchange="handleChange" color="#2d8cf0" i-class="tab">
+            <i-tabs current="{{ current }}" bindchange="handleChange" color="#FF6C37" i-class="tab">
                 <i-tab key="Movie" title="电 影"></i-tab>
                 <i-tab key="Song" title="音 乐"></i-tab>
                 <i-tab key="Book" title="书 籍"></i-tab>

@@ -8,7 +8,7 @@ Page({
      */
     data: {
         offset:0,
-        limit:9,
+        limit:12,
         tip:"上拉刷新",
         searchVal: "",
         inputShowed: true,
@@ -108,7 +108,7 @@ Page({
         detail
     }) {
         let that=this;
-        let route = "/search?wd=" + that.data.searchVal + "&type=" + detail.key + "&offset=0&limit=9"
+        let route = "/search?wd=" + that.data.searchVal + "&type=" + detail.key + "&offset=0&limit=12"
         api.request("GET", route).then((res) => {
             let temp={};
             temp.current = detail.key;
@@ -146,7 +146,7 @@ Page({
     confirm: function(e) {
         //向后台发请求
         let that=this;
-        let route = "/search?wd=" + this.data.searchVal + "&type=" + this.data.current + "&offset=0&limit=9";
+        let route = "/search?wd=" + this.data.searchVal + "&type=" + this.data.current + "&offset=0&limit=12";
         api.request("GET", route).then((res) => {
             let temp={};
             let type = that.data.current.toLowerCase()+"s";
@@ -163,7 +163,7 @@ Page({
      */
     onLoad: function(options) {
         let that=this;
-        api.request("GET", "/search?wd=" + options.wd + "&type=Movie&offset=0&limit=9").then((res) => {
+        api.request("GET", "/search?wd=" + options.wd + "&type=Movie&offset=0&limit=12").then((res) => {
             let offset = that.data.offset + that.data.limit;
             that.setData({
                 searchVal: options.wd,
@@ -218,7 +218,7 @@ Page({
      */
     onReachBottom: function() {
         let that = this;
-        let route = "/search?wd=" + this.data.searchVal + "&type=" + this.data.current + "&offset="+that.data.offset+"&limit=9";
+        let route = "/search?wd=" + this.data.searchVal + "&type=" + this.data.current + "&offset="+that.data.offset+"&limit=12";
         api.request("GET", route).then((res) => {
             let temp = {};
             let type = that.data.current.toLowerCase() + "s";

@@ -10,9 +10,8 @@ Page({
      */
     data: {
         user: {
-            avatar: "/images/icons/yonghu.png",
+            avatar: "/images/user.png",
             name: "点击头像登陆",
-            id:"1"
         },
         authVisible: false,
 
@@ -59,9 +58,15 @@ Page({
 
     authorize: function() {
         console.log("授权");
-        this.setData({
-            authVisible: true
-        });
+        let user=getApp().globalData.userInfo;
+        if(user==null){
+            this.setData({
+                authVisible: true
+            });
+        }else{
+
+        }
+        
     },
     wantClick:function(){
         let user = getApp().globalData.userInfo;
@@ -106,6 +111,10 @@ Page({
                     }
                     
                     getApp().globalData.userInfo = user;
+                    wx.setStorage({
+                        key: "DBJ_User",
+                        data: JSON.stringify(user)
+                    })
                     
                     that.setData({
                         user
@@ -113,6 +122,24 @@ Page({
                 })
             }
         });
+    },
+    logout:function(){
+        let that=this;
+        wx.removeStorage({
+            key: 'DBJ_User',
+            success(res) {
+                console.log(res);
+                let user = {
+                    avatar: "/images/user.png",
+                    name: "点击头像登陆",
+                    id: "1"
+                };
+                getApp().globalData.userInfo = null;
+                that.setData({
+                    user
+                })
+            }
+        })
     },
 
     /**
@@ -126,7 +153,10 @@ Page({
                 authVisible: true
             });
         } else {
-
+            
+            this.setData({
+                user
+            });
         }
         
     },

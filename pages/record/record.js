@@ -7,6 +7,7 @@ Page({
      * 页面的初始数据
      */
     data: {
+        isWanted:true,
         current: 'Movie',
         verticalCurrent: 0,
         movies: [{
@@ -199,29 +200,34 @@ Page({
      */
     onLoad: function(options) {
         console.log(options)
+        let that=this;
         let title = '';
+        
 
         let user = getApp().globalData.userInfo;
 
         if (options.isWanted == 'true') {
             title = "想 - 看/听/读"
             api.request("GET", "/movies/want?session_id=" + user.id + "&offset=0&limit=10").then((res) => {
-                this.setData({
-                    movies: res.data.reverse()
+                that.setData({
+                    movies: res.data.reverse(),
+                    isWanted:true
                 })
             })
         } else {
             title = "看/听/读 - 过"
             api.request("GET", "/movies/seen?session_id=" + user.id + "&offset=0&limit=10").then((res) => {
-                this.setData({
-                    movies: res.data.reverse()
+                that.setData({
+                    movies: res.data.reverse(),
+                    isWanted: false
                 })
             })
         }
         wx.setNavigationBarTitle({
             title: title
         })
-        this.setData(options);
+    
+        
 
 
 

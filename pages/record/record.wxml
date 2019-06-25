@@ -1,7 +1,7 @@
 <!--pages/record/record.wxml-->
 
 <view class='tab-wrap'>
-    <i-tabs current="{{ current }}" bindchange="handleChange" color="#2d8cf0" i-class="tab" fixed>
+    <i-tabs current="{{ current }}" bindchange="handleChange" color="#FF6C37" i-class="tab" fixed>
         <i-tab key="Movie" title="电 影"></i-tab>
         <i-tab key="Song" title="音 乐"></i-tab>
         <i-tab key="Book" title="书 籍"></i-tab>
@@ -9,7 +9,7 @@
 </view>
 <view class='content-wrap'>
     <view class='movie tab-content' wx-if="{{current=='Movie'}}">
-        <i-steps current="{{verticalCurrent}}" direction="vertical">
+        <i-steps  direction="vertical">
             <i-step icon="live_fill" wx:for="{{movies}}">
                 <view slot="title" class='m-title'>
                     {{isWanted?item.want_date:item.seen_date}}
@@ -35,7 +35,7 @@
     </view>
 
     <view class='movie tab-content' wx-if="{{current=='Book'}}">
-        <i-steps current="{{verticalCurrent}}" direction="vertical">
+        <i-steps direction="vertical">
             <i-step icon="barrage_fill" wx:for="{{books}}">
                 <view slot="title" class='m-title'>
                     {{isWanted?item.want_date:item.seen_date}}
@@ -61,7 +61,7 @@
     </view>
 
     <view class='movie tab-content' wx-if="{{current=='Song'}}">
-        <i-steps current="{{verticalCurrent}}" direction="vertical">
+        <i-steps direction="vertical">
             <i-step icon="customerservice_fill" wx:for="{{songs}}">
                 <view slot="title" class='m-title'>
                     {{isWanted?item.want_date:item.seen_date}}
