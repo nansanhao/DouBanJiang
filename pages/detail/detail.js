@@ -21,6 +21,7 @@ Page({
         user_comment: {},
         movie: {},
         comments: [],
+        comments_num:0,
         song: {},
         book: {}
 
@@ -101,13 +102,20 @@ Page({
         let user = getApp().globalData.userInfo;
         let id = options.id;
         let route = "/" + options.type + "s/" + options.id;
-
+        let titles = {
+            book: "书籍详情",
+            movie: "电影详情",
+            song: "音乐详情"
+        }
+        wx.setNavigationBarTitle({
+            title: titles[options.type]
+        });
         if (user == null) {
             route += "?islogin=0";
         } else {
             route += "?islogin=1&session_id=" + user.id;
         }
-
+        
         api.request("GET", route, true).then((res) => {
             // let temp = res.data.mo_introduction;
             // temp=temp.replace("/n","")
@@ -121,6 +129,7 @@ Page({
                 movie: "mo_",
                 song: "mu_"
             };
+            
             let pre = "";
             pre = pres[options.type] + "introduction";
             detail.introduction = res.data[pre];
@@ -130,8 +139,9 @@ Page({
                 detail.isSeen = true;
                 detail.user_comment = res.data["Comments"];
             }
-            detail.rate = (res.data[pre] / 2).toFixed(1);
+            detail.rate = (res.data[pre]).toFixed(1);
             detail.comments = res.data.comments;
+            detail.comments_num = res.data.comments_num;
             detail.offset=res.data.comments.length;
             detail.visible=true;
             that.setData(detail);
@@ -210,6 +220,7 @@ Page({
             }
             detail.rate = (res.data[pre]).toFixed(1);
             detail.comments = res.data.comments;
+            detail.comments_num = res.data.comments_num;
             that.setData(detail);
             wx.stopPullDownRefresh(); //刷新完成后停止下拉刷新动效
 

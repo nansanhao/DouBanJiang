@@ -36,7 +36,7 @@
     font-size: 32rpx;
     margin-bottom: 20rpx;
     margin-top: 10rpx;
-    
+    width: 320rpx;
     overflow: hidden;
     white-space: nowrap;
     text-overflow:ellipsis; 

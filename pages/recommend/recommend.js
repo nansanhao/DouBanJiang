@@ -1,4 +1,5 @@
 // pages/recommend/recommend.js
+const api = require('../../services/api');
 Page({
 
     /**
@@ -6,166 +7,66 @@ Page({
      */
     data: {
         swiper: {
-            imgUrl: [
-                "http://p1.music.126.net/u6xoXCbHTP1hQ0QG-_Jb0A==/109951164153012905.jpg",
-                "http://p1.music.126.net/s-LWGIYBH4g33ZtpEZtkcg==/109951164159648857.jpg",
-                "http://p1.music.126.net/iYc5TzEYHyYMUzG5t3zLKw==/109951164159234725.jpg"
-            ],
+            imgUrl: [],
             indicatorDots: true,
             autoplay: true,
             interval: 5000,
             duration: 1000
         },
-        movies: [{
-                name: "雪暴",
-                imgUrl: "https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2554545271.jpg",
-                rate: 4
-            },
-            {
-                name: "我们",
-                imgUrl: "https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2551094671.jpg",
-                rate: 4
-            },
-            {
-                name: "毒液：致命守护者",
-                imgUrl: "https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2537158013.jpg",
-                rate: 4
-            },
-            {
-                name: "老师·好",
-                imgUrl: "https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2551352209.jpg",
-                rate: 4
-            },
-            {
-                name: "邪不压正",
-                imgUrl: "https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2526297221.jpg",
-                rate: 4
-            },
-            {
-                name: "西虹市首富",
-                imgUrl: "https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2529206747.jpg",
-                rate: 4
-            }
+        swiperImg: [
+            "http://p1.music.126.net/pEUIMlwnEv16W_xsfyP7AA==/109951164173578882.jpg",
+            "http://p1.music.126.net/KDhMB6fy6l6eioCGVq3t5Q==/109951164173655006.jpg",
+            "http://p1.music.126.net/Ll4BaVEfUhyV44IoaIsA1Q==/109951164173628298.jpg",
+            "http://p1.music.126.net/iE8RF_J8RJ8KHuv5TSDkzA==/109951164173713532.jpg",
+            "http://p1.music.126.net/MGHO6vVC5foaGOL_RM7zTA==/109951164173594030.jpg",
+            "http://p1.music.126.net/JAEDLSPX-5QJZDFl_5WFtQ==/109951164174505867.jpg",
+            "http://p1.music.126.net/g7ENsKppGsFuSwgICQQvSQ==/109951164173596612.jpg",
+            "http://p1.music.126.net/7Oz0hQc6psBWpYYmINb-jQ==/109951164174997673.jpg",
+            "http://p1.music.126.net/vkICrNKOIqXtsQ9inaDV7A==/109951164173631257.jpg",
+            "http://p1.music.126.net/u6xoXCbHTP1hQ0QG-_Jb0A==/109951164153012905.jpg",
+            "http://p1.music.126.net/s-LWGIYBH4g33ZtpEZtkcg==/109951164159648857.jpg",
+            "http://p1.music.126.net/iYc5TzEYHyYMUzG5t3zLKw==/109951164159234725.jpg"
         ],
-        books: [{
-                name: "一只计划逃跑的蛋",
-                imgUrl: "https://img3.doubanio.com/view/subject/m/public/s33297595.jpg",
-                rate: 4
-            },
-            {
-                name: "犹大之窗",
-                imgUrl: "https://img3.doubanio.com/view/subject/l/public/s32313716.jpg",
-                rate: 4
-            },
-            {
-                name: "天使之耳",
-                imgUrl: "https://img3.doubanio.com/view/subject/l/public/s32326952.jpg",
-                rate: 4
-            },
-            {
-                name: "药物简史",
-                imgUrl: "https://img3.doubanio.com/view/subject/l/public/s32296303.jpg",
-                rate: 4
-            },
-            {
-                name: "韩剧如何讲故事",
-                imgUrl: "https://img3.doubanio.com/view/subject/l/public/s32327915.jpg",
-                rate: 4
-            }
-        ],
-        songs: [{
-                name: "Bo doubt",
-                imgUrl: "http://p2.music.126.net/ucKEvxKIveuKXZLlCq5kOQ==/109951164156198022.jpg?param=130y130",
-                rate: ""
-            },
-            {
-                name: "BlackACE",
-                imgUrl: "http://p1.music.126.net/8N3IrtEEupueYo1rkY-NNw==/109951164105788682.jpg?param=177y177",
-                rate: ""
-            },
-            {
-                name: "Like A Fan",
-                imgUrl: "http://p1.music.126.net/YGTCUr9GACzSkKpto1nFJA==/109951164144564839.jpg?param=177y177",
-                rate: ""
-            },
-            {
-                name: "灰烬",
-                imgUrl: "http://p1.music.126.net/SQk4cayv5n4HWKOQDh5Ygg==/109951164155902259.jpg?param=177y177",
-                rate: ""
-            },
-            {
-                name: "你엉클준",
-                imgUrl: "http://p1.music.126.net/evGI0Rt47CQb2Zlk0URyUg==/109951164154121719.jpg?param=177y177",
-                rate: ""
-            },
-            {
-                name: "你曾是少年",
-                imgUrl: "http://p2.music.126.net/qXoj3GTwWWtDDETq72oovQ==/109951164107576105.jpg?param=130y130",
-                rate: ""
-            },
-            {
-                name: "Bo doubt",
-                imgUrl: "http://p2.music.126.net/ucKEvxKIveuKXZLlCq5kOQ==/109951164156198022.jpg?param=130y130",
-                rate: ""
-            },
-            {
-                name: "BlackACE",
-                imgUrl: "http://p1.music.126.net/8N3IrtEEupueYo1rkY-NNw==/109951164105788682.jpg?param=177y177",
-                rate: ""
-            },
-            {
-                name: "Like A Fan",
-                imgUrl: "http://p1.music.126.net/YGTCUr9GACzSkKpto1nFJA==/109951164144564839.jpg?param=177y177",
-                rate: ""
-            },
-            {
-                name: "灰烬",
-                imgUrl: "http://p1.music.126.net/SQk4cayv5n4HWKOQDh5Ygg==/109951164155902259.jpg?param=177y177",
-                rate: ""
-            },
-            {
-                name: "你엉클준",
-                imgUrl: "http://p1.music.126.net/evGI0Rt47CQb2Zlk0URyUg==/109951164154121719.jpg?param=177y177",
-                rate: ""
-            },
-            {
-                name: "你曾是少年",
-                imgUrl: "http://p2.music.126.net/qXoj3GTwWWtDDETq72oovQ==/109951164107576105.jpg?param=130y130",
-                rate: ""
-            },
-            {
-                name: "Bo doubt",
-                imgUrl: "http://p2.music.126.net/ucKEvxKIveuKXZLlCq5kOQ==/109951164156198022.jpg?param=130y130",
-                rate: ""
-            },
-            {
-                name: "BlackACE",
-                imgUrl: "http://p1.music.126.net/8N3IrtEEupueYo1rkY-NNw==/109951164105788682.jpg?param=177y177",
-                rate: ""
-            },
-            {
-                name: "Like A Fan",
-                imgUrl: "http://p1.music.126.net/YGTCUr9GACzSkKpto1nFJA==/109951164144564839.jpg?param=177y177",
-                rate: ""
-            },
-            {
-                name: "灰烬",
-                imgUrl: "http://p1.music.126.net/SQk4cayv5n4HWKOQDh5Ygg==/109951164155902259.jpg?param=177y177",
-                rate: ""
-            },
-            {
-                name: "你엉클준",
-                imgUrl: "http://p1.music.126.net/evGI0Rt47CQb2Zlk0URyUg==/109951164154121719.jpg?param=177y177",
-                rate: ""
-            }
-        ]
+        movies: [],
+        books: [],
+        songs: []
+    },
+    swiperRandom: function() {
+        let max = this.data.swiperImg.length;
+        let img1 = getRandomInt(max);
+        let img2 = getRandomInt(max);
+        let img3 = getRandomInt(max);
+        while (img1 == img2 || img1 == img3 || img2 == img3) {
+            img2 = getRandomInt(max);
+            img3 = getRandomInt(max);
+        }
+        let swiperImg = [];
+        let swiper = this.data.swiper;
+        swiperImg.push(this.data.swiperImg[img1], this.data.swiperImg[img2], this.data.swiperImg[img3]);
+        swiper.imgUrl = swiperImg;
+        this.setData({
+            swiper
+        });
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
+        this.swiperRandom();
+        let user = getApp().globalData.userInfo;
+        let route = "/users/" + user.id + "/recommends";
+        // let route = "/users/" + "1" + "/recommends";
+        
+        api.request("GET", route, true).then((res) => {
+            console.log(res.data);
+            this.setData({
+                movies: res.data.movies,
+                books: res.data.books,
+                songs: res.data.music
+            })
 
+        })
     },
 
     /**
@@ -200,7 +101,23 @@ Page({
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh: function() {
+        this.swiperRandom();
+        let user = getApp().globalData.userInfo;
+        let route = "/users/" + user.id + "/recommends";
+        // let route = "/users/" + "1" + "/recommends";
 
+        api.request("GET", route, true).then((res) => {
+            console.log(res.data);
+            
+            this.setData({
+                movies: res.data.movies,
+                books: res.data.books,
+                songs: res.data.music
+            });
+            wx.stopPullDownRefresh(); //刷新完成后停止下拉刷新动效
+
+        })
+        
     },
 
     /**
@@ -217,3 +134,7 @@ Page({
 
     }
 })
+
+function getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
+}

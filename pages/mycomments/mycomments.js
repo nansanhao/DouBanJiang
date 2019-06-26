@@ -9,7 +9,7 @@ Page({
     data: {
         offset: 0,
         limit: 5,
-        tip: "上拉加载更多",
+        tip: "没有更多数据",
         tipState: false,
         isWanted: true,
         current: 'Movie',
@@ -40,6 +40,7 @@ Page({
         let route = "/users/" + user.id +"/comments?offset=0&limit="+this.data.limit;
 
         api.request("GET",route, true).then((res) => {
+            
             that.setData({
                 movies: res.data.movies,
                 songs: res.data.songs,

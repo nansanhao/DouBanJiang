@@ -29,7 +29,7 @@
         <i-cell i-class="l-item" title="看/听/读 - 过" is-link bind:click="seenClick" value="详情">
             <i-icon slot="icon" type="live_fill" size='40' />
         </i-cell>
-        <i-cell i-class="l-item" title="我的评论" is-link bind:click="commentClick" url="#" value="详情">
+        <i-cell i-class="l-item" title="我的评论" is-link bind:click="commentClick" value="详情">
             <i-icon slot="icon" type="interactive" size='40' />
         </i-cell>
         <!-- <i-cell title="开关">

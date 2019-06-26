@@ -26,6 +26,11 @@ Page({
         let that=this;
         let route = "/search?wd=" + that.data.searchVal + "&type=" + detail.key + "&offset=0&limit="+this.data.limit;
         api.request("GET", route,true).then((res) => {
+            if (res.data.length < that.data.limit) {
+                that.setData({
+                    tip: "没有更多数据"
+                })
+            }
             let temp={};
             temp.current = detail.key;
             let type = detail.key.toLowerCase()+"s";
@@ -64,6 +69,11 @@ Page({
         let that=this;
         let route = "/search?wd=" + this.data.searchVal + "&type=" + this.data.current + "&offset=0&limit="+that.data.limit;
         api.request("GET", route,true).then((res) => {
+            if (res.data.length < that.data.limit) {
+                that.setData({
+                    tip: "没有更多数据"
+                })
+            }
             let temp={};
             let type = that.data.current.toLowerCase()+"s";
             temp[type]=res.data;
@@ -81,6 +91,11 @@ Page({
         let that=this;
         api.request("GET", "/search?wd=" + options.wd + "&type=Movie&offset=0&limit="+that.data.limit,true).then((res) => {
             let offset = that.data.offset + that.data.limit;
+            if (res.data.length < that.data.limit) {
+                that.setData({
+                    tip: "没有更多数据"
+                })
+            }
             that.setData({
                 searchVal: options.wd,
                 movies: res.data,

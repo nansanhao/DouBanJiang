@@ -1,12 +1,11 @@
 {
-  "usingComponents": {
-      "i-button": "../../iviewComponent/button/index",
-      "i-icon": "../../iviewComponent/icon/index",
-      "i-rate": "../../iviewComponent/rate/index"
-  },
-  "navigationBarTitleText": "详情" ,
-  "enablePullDownRefresh": true ,
+    "usingComponents": {
+        "i-button": "../../iviewComponent/button/index",
+        "i-icon": "../../iviewComponent/icon/index",
+        "i-rate": "../../iviewComponent/rate/index"
+    },
+    "navigationBarTitleText": "详情",
+    "enablePullDownRefresh": true,
     "backgroundTextStyle": "dark",
-    "backgroundColor":"#F9F9F9"
-
+    "backgroundColor": "#F9F9F9"
 }

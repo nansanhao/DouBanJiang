@@ -69,9 +69,9 @@
                 <navigator url="{{'/pages/detail/detail?id='+item.mu_id+'&type=song'}}" slot="content" class='m-wrap'>
                     <image src='{{item.mu_picture}}' class='m-img-song'></image>
                     <view class='m-info'>
-                        <view class='m-i-name'>{{item.mu_name}}</view>
-                        <view class='m-i-tag'>歌手：{{item.mu_singer}}</view>
-                        <view class='m-i-tag'>发行时间：{{item.mu_date}}</view>
+                        <view class='m-i-name-song'>{{item.mu_name}}</view>
+                        <view class='m-i-tag-song'>歌手：{{item.mu_singer}}</view>
+                        <view class='m-i-tag-song'>发行时间：{{item.mu_date}}</view>
                         <view class='m-i-rate'>
                             <view class="m-i-r-num">评分： </view>
                             <view class='m-i-r-star'>

@@ -49,16 +49,40 @@
 .m-i-name{
     font-weight: bold;
     font-size: 32rpx;
-    width: 300rpx;
+    width: 360rpx;
     overflow: hidden;
     white-space: nowrap;
     text-overflow:ellipsis; 
 
 }
+
 .m-i-tag{
+    width: 355rpx;
     font-size: 24rpx;
     color: #666;
     padding-top: 30rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow:ellipsis; 
+    
+}
+.m-i-name-song{
+    font-weight: bold;
+    font-size: 32rpx;
+    width: 282rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow:ellipsis; 
+
+}
+.m-i-tag-song{
+    width: 280rpx;
+    font-size: 24rpx;
+    color: #666;
+    padding-top: 30rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow:ellipsis; 
     
 }
 .m-i-r-num{

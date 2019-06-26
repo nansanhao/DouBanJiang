@@ -14,13 +14,7 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
-const formatMovie = movie =>{
-    let movie_f={
-        
-    };
-    
-    
-}
+
 
 module.exports = {
   formatTime: formatTime

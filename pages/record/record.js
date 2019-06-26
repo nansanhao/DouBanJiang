@@ -62,6 +62,11 @@ Page({
         if (options.isWanted == 'true') {
             title = "想 - 看/听/读"
             api.request("GET", "/movies/want?session_id=" + user.id + "&offset=0&limit="+that.data.limit,true).then((res) => {
+                if(res.data.length<that.data.limit){
+                    that.setData({
+                        tip:"没有更多数据"
+                    })
+                };
                 that.setData({
                     movies: res.data,
                     isWanted:true,
@@ -71,6 +76,11 @@ Page({
         } else {
             title = "看/听/读 - 过"
             api.request("GET", "/movies/seen?session_id=" + user.id + "&offset=0&limit="+that.data.limit,true).then((res) => {
+                if (res.data.length < that.data.limit) {
+                    that.setData({
+                        tip: "没有更多数据"
+                    })
+                }
                 that.setData({
                     movies: res.data,
                     isWanted: false,

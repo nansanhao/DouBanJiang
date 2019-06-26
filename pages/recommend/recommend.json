@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
-  "navigationBarTitleText": "个性推荐"
+    "usingComponents": {},
+    "navigationBarTitleText": "个性推荐",
+    "enablePullDownRefresh": true,
+    "backgroundTextStyle": "dark"
 }

@@ -11,24 +11,24 @@
 <view class='recommend'>
     <view class="r-movie">
         <view bindtap="#" class='r-m-item' wx:for="{{movies}}">
-            <navigator url="/pages/detail/detail" class="r-m-img">
-                <image src='{{item.imgUrl}}' class='r-m-img' mode='aspectFill'></image>
+            <navigator url="{{'/pages/detail/detail?id='+item.mo_id+'&type=movie'}}" class="r-m-img">
+                <image src='{{item.mo_picture}}' class='r-m-img' mode='aspectFill'></image>
             </navigator>
-            <view class='r-m-name'>{{item.name}}</view>
+            <view class='r-m-name'>{{item.mo_name}}</view>
         </view>
         <view bindtap="#" class='r-m-item' wx:for="{{books}}">
-            <navigator url="/pages/detail/detail" class="r-m-img">
-                <image src='{{item.imgUrl}}' class='r-m-img' mode='aspectFill'></image>
+            <navigator url="{{'/pages/detail/detail?id='+item.b_id+'&type=book'}}" class="r-m-img">
+                <image src='{{item.b_picture}}' class='r-m-img' mode='aspectFill'></image>
             </navigator>
-            <view class='r-m-name'>{{item.name}}</view>
+            <view class='r-m-name'>{{item.b_name}}</view>
         </view>
     </view>
     <view class="r-song">
         <view bindtap="#" class='r-m-item' wx:for="{{songs}}">
-            <navigator url="/pages/detail/detail" class="r-m-img-song">
-                <image src='{{item.imgUrl}}' class='r-m-img-song' mode='aspectFill'></image>
+            <navigator url="{{'/pages/detail/detail?id='+item.mu_id+'&type=song'}}" class="r-m-img-song">
+                <image src='{{item.mu_picture}}' class='r-m-img-song' mode='aspectFill'></image>
             </navigator>
-            <view class='r-m-name'>{{item.name}}</view>
+            <view class='r-m-name'>{{item.mu_name}}</view>
         </view>
     </view>
 </view>

@@ -5,7 +5,12 @@
         <view class='m-info'>
             <view class='m-i-name'>{{movie.mo_name}}</view>
             <view class='m-i-date'>上映日期：{{movie.mo_date}}</view>
-            <view class='m-i-tag'>{{"片长:"+movie.mo_length}}</view>
+            <view class='m-i-tag'>{{"片长："+movie.mo_length}}</view>
+            <view class='m-i-tag'>
+                <text>标签：</text> 
+                <text wx:for="{{movie.tags}}">{{item.t_tag+" / "}}电影</text>
+            </view>
+            
             <view class='m-i-btn' wx-if="{{isSeen}}">
                 <i-button bind:click="handleViewed" size="small" type="info">
                     <i-icon type="collection_fill" size='20' /> 已看过
@@ -22,11 +27,15 @@
         </view>
     </view>
     <view class='movie' wx-if="{{type=='song'}}">
-        <image src='{{song.mu_picture}}' class='m-img' mode='aspectFill'></image>
+        <image src='{{song.mu_picture}}' class='m-img-song' mode='aspectFill'></image>
         <view class='m-info'>
             <view class='m-i-name'>{{song.mu_name}}</view>
             <view class='m-i-date'>发行日期：{{song.mu_date}}</view>
             <view class='m-i-tag'>{{"歌手："+song.mu_singer}}</view>
+            <view class='m-i-tag'>
+                <text>标签：</text> 
+                <text wx:for="{{song.tags}}">{{item.t_tag+" / "}}歌曲</text>
+            </view>
             <view class='m-i-btn' wx-if="{{isSeen}}">
                 <i-button bind:click="handleViewed" size="small" type="info">
                     <i-icon type="collection" size='20' /> 已听过
@@ -48,6 +57,10 @@
             <view class='m-i-name'>{{book.b_name}}</view>
             <view class='m-i-date'>出版日期：{{book.b_date}}</view>
             <view class='m-i-tag'>{{"作者："+book.b_writer}}</view>
+            <view class='m-i-tag'>
+                <text>标签：</text> 
+                <text wx:for="{{book.tags}}">{{item.t_tag+" / "}}书籍</text>
+            </view>
             <view class='m-i-btn' wx-if="{{isSeen}}">
                 <i-button bind:click="handleViewed" size="small" type="info">
                     <i-icon type="collection" size='20' /> 已看过
@@ -67,7 +80,7 @@
     <view class='rate'>
         <view class='r-title'>
             <text>评分：</text>
-            <text class="r-t-num">4396人评分</text>
+            <text class="r-t-num">{{comments_num}}人评分</text>
         </view>
         <view class='r-content'>
             <view class="r-c-num">{{rate}}</view>
@@ -83,7 +96,7 @@
     <view class="comment">
         <view class="c-title">
             <text class="c-t-content">评论</text>
-            <text class="c-t-num">4396人评论</text>
+            <text class="c-t-num">{{comments_num}}人评论</text>
         </view>
         <view class="c-content">
             <view wx:for="{{comments}}" class="c-c-item">
