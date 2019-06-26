@@ -50,6 +50,13 @@ Page({
         //     });
         // }, 2000);
     },
+    userClick:function(){
+        $Toast({
+            content: '此功能待开发！Developed by CHJ，CJX，ZZQ，XZQ，JJX，WXC',
+            type: 'warning',
+            duration: 1
+        });
+    },
     wantClick:function(){
         let user = getApp().globalData.userInfo;
         if (user == null) {

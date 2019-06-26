@@ -20,7 +20,7 @@
 <view class='list'>
     <view class='l-title'>我的书影音</view>
     <i-cell-group>
-        <i-cell i-class="l-item" title="个人信息" is-link value="详情">
+        <i-cell i-class="l-item" title="个人信息" is-link bind:click="userClick" value="详情">
             <i-icon slot="icon" type="mine_fill" size='40' />
         </i-cell>
         <i-cell i-class="l-item" title="想 - 看/听/读" is-link bind:click="wantClick" value="详情">
