@@ -1,5 +1,4 @@
 /* pages/rank/rank.wxss */
-
 .swiper-img {
     width: 750rpx;
 }
@@ -12,7 +11,7 @@
 }
 
 .rank-item {
-    margin: 0 21.74rpx 0 0;
+    margin: 0 24rpx 0 0;
     text-align: center;
 }
 
@@ -40,7 +39,9 @@
     white-space: nowrap;
     text-overflow:ellipsis; 
 }
-
+.foot{
+    margin-bottom: 30rpx;
+}
 /* WEUI */
 
 .weui-search-bar {

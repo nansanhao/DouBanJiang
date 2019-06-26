@@ -9,59 +9,18 @@ Page({
      * 页面的初始数据
      */
     data: {
+        visible:false,
+        offset: 0,
+        limit: 5,
+        tip: "上拉加载更多",
+        tipState: false,
         type: "",
         isSeen: false,
         rate: 0,
         introduction: "",
         user_comment: {},
-        movie: {
-            name: "最好的我们",
-            imgUrl: "https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2557157554.jpg",
-            date: "2019",
-            tags: "喜剧 动作 科幻",
-            rate: 4.7,
-            origin: "美国",
-            length: "110分钟",
-            introduction: "每个人的心里大概都藏着一个念念不忘的人。一个偶然被提及的名字，让女摄影师耿耿（何蓝逗 饰）内心掀起万千波澜，触动了回忆的开关，那个撩人心动的少年余淮（陈飞宇 饰）再度闯进她的思绪。 "
-
-        },
-        comments: [{
-                user: {
-                    name: "南三号",
-                    avatar: "http://p1.music.126.net/T4ro14ASzPXedQ1VbovgWQ==/109951164090469005.jpg?param=180y180"
-                },
-                rate: 3.5,
-                date: "2019-6-1",
-                content: "八月长安只手撑起国产青春一片天，女主角真的蛮可爱，躲躲闪闪的样子很有青春味了。这演学霸毫无说服力啊！然后又帅得很不日常，完全不像会出现在谁的青春里的样子，搞得我们老少女想寄情都寄不出去。纯爱青春片最重要的就是男主角，而男主角最重要的不是有多帅，是要帅得触手可及啊！"
-            },
-            {
-                user: {
-                    name: "雾与晨的杂货店",
-                    avatar: "http://p1.music.126.net/ma8NC_MpYqC-dK_L81FWXQ==/109951163250233892.jpg?param=180y180"
-                },
-                rate: 3.5,
-                date: "2019-6-1",
-                content: "女Vocal是来自美国🇺🇸年仅17岁的Noah Cyrus,声线清纯自然,同时塞勒斯是名演员,年纪轻轻非常有才华。男Vocal是来自英国🇬🇧的Digital Farm Animals。艾伦沃克凭借自己超高的人气一举夺得DJ Mag百大第17位！"
-            },
-            {
-                user: {
-                    name: "HI我是念木槿",
-                    avatar: "http://p2.music.126.net/73tEDRC4zK40BPBi-BNgTQ==/18777459581328172.jpg?param=180y180"
-                },
-                rate: 3.5,
-                date: "2019-6-1",
-                content: "无疑Alan Walker是北欧的电音奇才，我无法想象他在17岁前经历了什么有了哪些感悟引发了一场与电音艺术的交流，而我又在17岁时做了些什么。怀着不一样的心境和心情，与全世界不同的角落里的年轻人一同欣赏All Falls Down吧，我想带给他们的力量和感受也不相同吧。"
-            },
-            {
-                user: {
-                    name: "夜晚和下雨天更配",
-                    avatar: "http://p2.music.126.net/qnxftvmMq-1bD32sCpynEw==/109951162829970616.jpg?param=180y180"
-                },
-                rate: 3.5,
-                date: "2019-6-1",
-                content: "女Vocal是来自美国🇺🇸年仅17岁的Noah Cyrus,声线清纯自然,同时塞勒斯是名演员,年纪轻轻非常有才华。男Vocal是来自英国🇬🇧的Digital Farm Animals。艾伦沃克凭借自己超高的人气一举夺得DJ Mag百大第17位！"
-            }
-        ],
+        movie: {},
+        comments: [],
         song: {},
         book: {}
 
@@ -149,7 +108,7 @@ Page({
             route += "?islogin=1&session_id=" + user.id;
         }
 
-        api.request("GET", route, false).then((res) => {
+        api.request("GET", route, true).then((res) => {
             // let temp = res.data.mo_introduction;
             // temp=temp.replace("/n","")
             // res.data.mo_introduction=temp;
@@ -173,8 +132,9 @@ Page({
             }
             detail.rate = (res.data[pre] / 2).toFixed(1);
             detail.comments = res.data.comments;
-
-            that.setData(detail)
+            detail.offset=res.data.comments.length;
+            detail.visible=true;
+            that.setData(detail);
 
         })
 
@@ -248,7 +208,7 @@ Page({
                 detail.isSeen = true;
                 detail.user_comment = res.data["Comments"];
             }
-            detail.rate = (res.data[pre] / 2).toFixed(1);
+            detail.rate = (res.data[pre]).toFixed(1);
             detail.comments = res.data.comments;
             that.setData(detail);
             wx.stopPullDownRefresh(); //刷新完成后停止下拉刷新动效
@@ -262,7 +222,28 @@ Page({
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function() {
-
+        this.setData({
+            tip:"加载中",
+            tipState:true
+        });
+        let pres = {
+            book: "b_",
+            movie: "mo_",
+            song: "mu_"
+        };
+        let that=this;
+        let user = getApp().globalData.userInfo;
+        let idType = pres[this.data.type]+"id";
+        let item = this.data[this.data.type];
+        let route = "/" + this.data.type + "s/" + item[idType] + "/comments?offset=" + this.data.offset +"&limit="+this.data.limit;
+        console.log(route);
+        api.request("GET",route,false).then((res)=>{
+            let temp={};
+            temp.tip="没有更多评论";
+            temp.tipState=false;
+            temp.comments=that.data.comments.concat(res.data);
+            that.setData(temp);
+        })
     },
 
     /**

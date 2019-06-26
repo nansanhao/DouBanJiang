@@ -11,7 +11,7 @@
     /* background-color: #00B51D; */
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    background-image: url("https://wx3.sinaimg.cn/mw690/007PAyUely1g45cfkfq22j319r0u04qq.jpg?tdsourcetag=s_pctim_aiomsg");
+    background-image: url("https://wx3.sinaimg.cn/mw690/006DuNkwly1g4eb2l7ug6j31hc0u0n0k.jpg");
 }
 
 .u-a-img {
@@ -26,6 +26,12 @@
     font-weight: bold;
     padding-top: 10rpx;
     font-size: 40rpx;
+}
+.u-n-btn{
+    height: 60rpx;
+    width: 200rpx;
+    margin: 0!important;
+    border-radius: 40rpx;
 }
 
 .u-logout {

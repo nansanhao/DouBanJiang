@@ -76,7 +76,7 @@
         </view>
     </i-panel>
 </view>
-<view class='rank'>
+<view class='rank foot'>
     <i-panel title="热门单曲" hide-border="true">
         <view class='rank-content'>
             <scroll-view class="scroll-view_H" scroll-x style="width: 100%">

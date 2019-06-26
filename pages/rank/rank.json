@@ -1,13 +1,14 @@
 {
-  "usingComponents": {
-      "i-input": "../../iviewComponent/input/index",
-      "i-panel": "../../iviewComponent/panel/index",
-      "i-icon": "../../iviewComponent/icon/index"
-  },
-  "navigationBarBackgroundColor":"#FF6C37",
-  "navigationBarTitleText":"榜单",
-  "navigationBarTextStyle":"white",
-  "backgroundColorTop": "#FF6C37",
-  "backgroundColorBottom":"#ffffff"
-  
+    "usingComponents": {
+        "i-input": "../../iviewComponent/input/index",
+        "i-panel": "../../iviewComponent/panel/index",
+        "i-icon": "../../iviewComponent/icon/index"
+    },
+    "navigationBarBackgroundColor": "#FF6C37",
+    "navigationBarTitleText": "榜单",
+    "navigationBarTextStyle": "white",
+    "backgroundColorTop": "#FF6C37",
+    "backgroundColorBottom": "#ffffff",
+    "enablePullDownRefresh": true,
+    "backgroundTextStyle": "dark"
 }

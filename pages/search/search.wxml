@@ -71,4 +71,4 @@
         </i-row>
     </view>
 </view>
-<i-load-more tip="{{tip}}" loading="{{ false }}" />
+<i-load-more tip="{{tip}}" loading="{{ tipState }}" />

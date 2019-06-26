@@ -6,5 +6,5 @@
         "i-step": "../../iviewComponent/step/index",
         "i-rate": "../../iviewComponent/rate/index"
     },
-  "navigationBarTitleText": "记录"
+    "navigationBarTitleText": "我的评论"
 }

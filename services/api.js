@@ -15,7 +15,7 @@ function promiseRequest(method = 'GET', path, showLoading = false, data,header =
         //1.展示加载层
         if (showLoading === true) {
             wx.showLoading({
-                title: '努力中...'
+                title: '努力加载中...'
             });
         }
         let user = getApp().globalData.userInfo;

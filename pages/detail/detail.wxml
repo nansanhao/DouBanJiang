@@ -1,5 +1,5 @@
 <!-- pages/detail/detail.wxml -->
-<view class="wrap">
+<view class="wrap" wx-if="{{visible}}">
     <view class='movie' wx-if="{{type=='movie'}}">
         <image src='{{movie.mo_picture}}' class='m-img' mode='aspectFill'></image>
         <view class='m-info'>
@@ -7,19 +7,16 @@
             <view class='m-i-date'>上映日期：{{movie.mo_date}}</view>
             <view class='m-i-tag'>{{"片长:"+movie.mo_length}}</view>
             <view class='m-i-btn' wx-if="{{isSeen}}">
-                <i-button bind:click="handleViewed"  size="small" type="info" >
-                    <i-icon type="collection_fill" size='20' />
-                    已看过
+                <i-button bind:click="handleViewed" size="small" type="info">
+                    <i-icon type="collection_fill" size='20' /> 已看过
                 </i-button>
             </view>
             <view class='m-i-btn' wx-if="{{!isSeen}}">
                 <i-button bind:click="handleClick" type="success" size="small" i-class="m-i-b-item">
-                    <i-icon type="like" size='20' />
-                    想看
+                    <i-icon type="like" size='20' /> 想看
                 </i-button>
                 <i-button bind:click="handleViewed" type="warning" size="small" i-class="m-i-b-item">
-                    <i-icon type="collection" size='20' />
-                    看过
+                    <i-icon type="collection" size='20' /> 看过
                 </i-button>
             </view>
         </view>
@@ -31,19 +28,16 @@
             <view class='m-i-date'>发行日期：{{song.mu_date}}</view>
             <view class='m-i-tag'>{{"歌手："+song.mu_singer}}</view>
             <view class='m-i-btn' wx-if="{{isSeen}}">
-                <i-button bind:click="handleViewed"  size="small" type="info">
-                    <i-icon type="collection" size='20' />
-                    已听过
+                <i-button bind:click="handleViewed" size="small" type="info">
+                    <i-icon type="collection" size='20' /> 已听过
                 </i-button>
             </view>
             <view class='m-i-btn' wx-if="{{!isSeen}}">
                 <i-button bind:click="handleClick" type="success" size="small" i-class="m-i-b-item">
-                    <i-icon type="like" size='20' />
-                    想听
+                    <i-icon type="like" size='20' /> 想听
                 </i-button>
                 <i-button bind:click="handleViewed" type="warning" size="small" i-class="m-i-b-item">
-                    <i-icon type="collection" size='20' />
-                    听过
+                    <i-icon type="collection" size='20' /> 听过
                 </i-button>
             </view>
         </view>
@@ -55,20 +49,17 @@
             <view class='m-i-date'>出版日期：{{book.b_date}}</view>
             <view class='m-i-tag'>{{"作者："+book.b_writer}}</view>
             <view class='m-i-btn' wx-if="{{isSeen}}">
-                <i-button bind:click="handleViewed"  size="small" type="info">
-                    <i-icon type="collection" size='20' />
-                    已看过
+                <i-button bind:click="handleViewed" size="small" type="info">
+                    <i-icon type="collection" size='20' /> 已看过
                 </i-button>
             </view>
             <view class='m-i-btn' wx-if="{{!isSeen}}">
 
                 <i-button bind:click="handleClick" type="success" size="small" i-class="m-i-b-item">
-                    <i-icon type="like" size='20' />
-                    想看
+                    <i-icon type="like" size='20' /> 想看
                 </i-button>
                 <i-button bind:click="handleViewed" type="warning" size="small" i-class="m-i-b-item">
-                    <i-icon type="collection" size='20' />
-                    看过
+                    <i-icon type="collection" size='20' /> 看过
                 </i-button>
             </view>
         </view>
@@ -102,7 +93,7 @@
                         <view class="i-u-info">
                             <view class="i-u-i-name">{{item.user_name}}</view>
                             <view class="i-u-i-rate">
-                                <i-rate disabled="{{true}}" value="{{item.score/2}}" size="10"></i-rate>
+                                <i-rate disabled="{{true}}" value="{{item.score}}" size="10"></i-rate>
                             </view>
                         </view>
                     </view>
@@ -113,6 +104,8 @@
                 </view>
             </view>
         </view>
+        <i-load-more tip="{{tip}}" loading="{{ tipState }}" />
+
     </view>
 </view>
 <i-toast id="toast" />

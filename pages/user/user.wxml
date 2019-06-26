@@ -1,13 +1,16 @@
 <!--pages/user/user.wxml-->
 <!-- <button open-type="openSetting" bindopensetting="callback">打开设置页</button> -->
 <view class='user'>
-    <view class='u-avatar'>
-        <image class='u-a-img' src='{{user.avatar}}' mode="aspectFill" bindtap='authorize'></image>
 
-        <view class='u-name'>
-            {{user.name}}
+    <view class='u-avatar'>
+        <image class='u-a-img' src='{{user.avatar}}' mode="aspectFill"></image>
+
+        <view class='u-name' >
+            <text wx-if="{{user.id}}">{{user.name}}</text>
+            <i-button i-class='u-n-btn' bind:click="authAllow" open-type="getUserInfo" bind:getuserinfo="bindGetUserInfo" wx-if="{{!user.id}}" shape="circle">点击登陆</i-button>
         </view>
-        <view class='u-logout' bindtap='logout'>
+        
+        <view class='u-logout' bindtap='logout' wx-if="{{user.id}}">
             <view class='u-l-wrap'>
                 <i-icon type="trash" size="18" color='#ffffff' />退出
             </view>
@@ -20,13 +23,13 @@
         <i-cell i-class="l-item" title="个人信息" is-link value="详情">
             <i-icon slot="icon" type="mine_fill" size='40' />
         </i-cell>
-        <i-cell i-class="l-item" title="想 - 看/听/读" is-link  bind:click="wantClick"  value="详情">
+        <i-cell i-class="l-item" title="想 - 看/听/读" is-link bind:click="wantClick" value="详情">
             <i-icon slot="icon" type="live" size='40' />
         </i-cell>
-        <i-cell i-class="l-item" title="看/听/读 - 过" is-link bind:click="seenClick"  value="详情">
+        <i-cell i-class="l-item" title="看/听/读 - 过" is-link bind:click="seenClick" value="详情">
             <i-icon slot="icon" type="live_fill" size='40' />
         </i-cell>
-        <i-cell i-class="l-item" title="我的评论" is-link url="#" value="详情">
+        <i-cell i-class="l-item" title="我的评论" is-link bind:click="commentClick" url="#" value="详情">
             <i-icon slot="icon" type="interactive" size='40' />
         </i-cell>
         <!-- <i-cell title="开关">
@@ -35,10 +38,10 @@
     </i-cell-group>
 
 </view>
-<i-action-sheet visible="{{ authVisible }}" bind:click="authClick" mask-closable="{{ false }}">
+<!-- <i-action-sheet visible="{{ authVisible }}" bind:click="authClick" mask-closable="{{ false }}">
     <view slot="header" class='header'>
         <view class='h-app'>
-            <i-icon type="businesscard_fill" size='40' color="#000000"/>
+            <i-icon type="businesscard_fill" size='40' color="#000000" />
             <text class='h-a-name'>豆瓣酱书影音社区</text>
             <text class='h-a-add'>申请</text>
         </view>
@@ -51,11 +54,12 @@
             </view>
         </view>
         <view class='h-action'>
-            <i-button i-class='h-a-btn' bind:click="authCancel" >取消</i-button>
+            <i-button i-class='h-a-btn' bind:click="authCancel">取消</i-button>
             <i-button i-class='h-a-btn' bind:click="authAllow" type="success" open-type="getUserInfo" bind:getuserinfo="bindGetUserInfo">允许</i-button>
         </view>
     </view>
-</i-action-sheet>
+</i-action-sheet> -->
 
-<i-message id="message" />
+<i-toast id="toast" />
+
 <i-load-more tip="Powered by Jiang" loading="{{ false }}" />

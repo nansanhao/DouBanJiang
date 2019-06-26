@@ -3,7 +3,6 @@
         "i-icon": "../../iviewComponent/icon/index",
         "i-cell-group": "../../iviewComponent/cell-group/index",
         "i-cell": "../../iviewComponent/cell/index",
-        "i-load-more": "../../iviewComponent/load-more/index",
         "i-action-sheet": "../../iviewComponent/action-sheet/index",
         "i-button": "../../iviewComponent/button/index",
         "i-modal": "../../iviewComponent/modal/index"

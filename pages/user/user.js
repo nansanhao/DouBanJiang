@@ -1,5 +1,5 @@
 // pages/user/user.js
-const {$Message} = require('../../iviewComponent/base/index');
+const { $Toast } = require('../../iviewComponent/base/index');
 const api = require('../../services/api');
 const util = require('../../utils/util');
 
@@ -13,12 +13,7 @@ Page({
             avatar: "/images/user.png",
             name: "点击头像登陆",
         },
-        authVisible: false,
-
-        actions2: [{
-            name: '删除',
-            color: '#ed3f14'
-        }]
+        authVisible: false
     },
     authClick() {
         this.setData({
@@ -55,24 +50,13 @@ Page({
         //     });
         // }, 2000);
     },
-
-    authorize: function() {
-        console.log("授权");
-        let user=getApp().globalData.userInfo;
-        if(user==null){
-            this.setData({
-                authVisible: true
-            });
-        }else{
-
-        }
-        
-    },
     wantClick:function(){
         let user = getApp().globalData.userInfo;
         if (user == null) {
-            this.setData({
-                authVisible: true
+            $Toast({
+                content: '请先登陆！',
+                type: 'warning',
+                duration:1
             });
         } else {
             wx.navigateTo({
@@ -83,12 +67,28 @@ Page({
     seenClick:function(){
         let user = getApp().globalData.userInfo;
         if (user == null) {
-            this.setData({
-                authVisible: true
+            $Toast({
+                content: '请先登陆！',
+                type: 'warning',
+                duration: 1
             });
         } else {
             wx.navigateTo({
                 url: "/pages/record/record?isWanted=false"
+            })
+        }
+    },
+    commentClick:function(){
+        let user = getApp().globalData.userInfo;
+        if (user == null) {
+            $Toast({
+                content: '请先登陆！',
+                type: 'warning',
+                duration: 1
+            });
+        } else {
+            wx.navigateTo({
+                url: "/pages/mycomments/mycomments?isWanted=false"
             })
         }
     },
@@ -115,6 +115,11 @@ Page({
                         key: "DBJ_User",
                         data: JSON.stringify(user)
                     })
+                    $Toast({
+                        content: '登陆成功！',
+                        type: 'success',
+                        duration: 1
+                    });
                     
                     that.setData({
                         user
@@ -131,9 +136,13 @@ Page({
                 console.log(res);
                 let user = {
                     avatar: "/images/user.png",
-                    name: "点击头像登陆",
-                    id: "1"
+                    name: "点击头像登陆"
                 };
+                $Toast({
+                    content: '退出登陆成功！',
+                    type: 'success',
+                    duration:1
+                });
                 getApp().globalData.userInfo = null;
                 that.setData({
                     user
@@ -149,9 +158,7 @@ Page({
         
         let user = getApp().globalData.userInfo;
         if (user==null) {
-            this.setData({
-                authVisible: true
-            });
+            
         } else {
             
             this.setData({

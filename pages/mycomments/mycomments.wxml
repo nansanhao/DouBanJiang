@@ -1,0 +1,76 @@
+<!--pages/mycomments/mycomments.wxml-->
+<view class='tab-wrap'>
+    <i-tabs current="{{ current }}" bindchange="handleChange" color="#FF6C37" i-class="tab" fixed>
+        <i-tab key="Movie" title="电 影"></i-tab>
+        <i-tab key="Song" title="音 乐"></i-tab>
+        <i-tab key="Book" title="书 籍"></i-tab>
+    </i-tabs>
+</view>
+<view class='content-wrap'>
+    <view class='movie tab-content' wx-if="{{current=='Movie'}}">
+        <i-steps direction="vertical">
+            <i-step icon="live_fill" wx:for="{{movies}}">
+                <view slot="title" class='m-title'>
+                    {{item.date}}
+                </view>
+                <view slot="content" class='m-wrap'>
+                    <view class='m-info'>
+                        <image src='{{item.mo_picture}}' class='m-img'></image>
+                        <view class='m-i-name'>{{item.mo_name}}</view>
+                        <view class='m-i-r-star'>
+                            <i-rate i-class="rate" disabled="{{true}}" value="{{item.score}}" size="12"></i-rate>
+                        </view>
+                    </view>
+                    <view class='m-comment'>
+                        {{item.comment}}
+                    </view>
+                </view>
+            </i-step>
+        </i-steps>
+    </view>
+
+    <view class='movie tab-content' wx-if="{{current=='Book'}}">
+        <i-steps direction="vertical">
+            <i-step icon="live_fill" wx:for="{{books}}">
+                <view slot="title" class='m-title'>
+                    {{item.date}}
+                </view>
+                <view slot="content" class='m-wrap'>
+                    <view class='m-info'>
+                        <image src='{{item.b_picture}}' class='m-img'></image>
+                        <view class='m-i-name'>{{item.b_name}}</view>
+                        <view class='m-i-r-star'>
+                            <i-rate i-class="rate" disabled="{{true}}" value="{{item.score}}" size="12"></i-rate>
+                        </view>
+                    </view>
+                    <view class='m-comment'>
+                        {{item.comment}}
+                    </view>
+                </view>
+            </i-step>
+        </i-steps>
+    </view>
+
+    <view class='movie tab-content' wx-if="{{current=='Song'}}">
+        <i-steps direction="vertical">
+            <i-step icon="live_fill" wx:for="{{songs}}">
+                <view slot="title" class='m-title'>
+                    {{item.date}}
+                </view>
+                <view slot="content" class='m-wrap'>
+                    <view class='m-info'>
+                        <image src='{{item.mu_picture}}' class='m-img-song'></image>
+                        <view class='m-i-name'>{{item.mu_name}}</view>
+                        <view class='m-i-r-star'>
+                            <i-rate i-class="rate" disabled="{{true}}" value="{{item.score}}" size="12"></i-rate>
+                        </view>
+                    </view>
+                    <view class='m-comment'>
+                        {{item.comment}}
+                    </view>
+                </view>
+            </i-step>
+        </i-steps>
+    </view>
+</view>
+<i-load-more tip="{{tip}}" loading="{{ tipState }}" />

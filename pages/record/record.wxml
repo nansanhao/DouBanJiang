@@ -23,9 +23,9 @@
                         <view class='m-i-rate'>
                             <view class="m-i-r-num">评分： </view>
                             <view class='m-i-r-star'>
-                                <i-rate i-class="rate" disabled="{{true}}" value="{{item.mo_score/2}}" size="12"></i-rate>
+                                <i-rate i-class="rate" disabled="{{true}}" value="{{item.mo_score}}" size="12"></i-rate>
                             </view>
-                            <view class='m-i-r-num'>{{item.mo_score/2}}</view>
+                            <view class='m-i-r-num'>{{item.mo_score}}</view>
 
                         </view>
                     </view>
@@ -49,9 +49,9 @@
                         <view class='m-i-rate'>
                             <view class="m-i-r-num">评分： </view>
                             <view class='m-i-r-star'>
-                                <i-rate i-class="rate" disabled="{{true}}" value="{{item.b_score?(item.b_score/2):0}}" size="12"></i-rate>
+                                <i-rate i-class="rate" disabled="{{true}}" value="{{item.b_score?(item.b_score):0}}" size="12"></i-rate>
                             </view>
-                            <view class='m-i-r-num'>{{item.b_score/2}}</view>
+                            <view class='m-i-r-num'>{{item.b_score}}</view>
 
                         </view>
                     </view>
@@ -75,9 +75,9 @@
                         <view class='m-i-rate'>
                             <view class="m-i-r-num">评分： </view>
                             <view class='m-i-r-star'>
-                                <i-rate i-class="rate" disabled="{{true}}" value="{{item.mu_score?(item.mu_score/2):0}}" size="12"></i-rate>
+                                <i-rate i-class="rate" disabled="{{true}}" value="{{item.mu_score?(item.mu_score):0}}" size="12"></i-rate>
                             </view>
-                            <view class='m-i-r-num'>{{item.mu_score/2}}</view>
+                            <view class='m-i-r-num'>{{item.mu_score}}</view>
 
                         </view>
                     </view>
@@ -86,4 +86,4 @@
         </i-steps>
     </view>
 </view>
-<i-load-more tip="开启于2019年1月" loading="{{ false }}" />
+<i-load-more tip="{{tip}}" loading="{{ tipState }}" />

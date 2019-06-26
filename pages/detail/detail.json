@@ -2,8 +2,7 @@
   "usingComponents": {
       "i-button": "../../iviewComponent/button/index",
       "i-icon": "../../iviewComponent/icon/index",
-      "i-rate": "../../iviewComponent/rate/index",
-      "i-toast": "../../iviewComponent/toast/index"
+      "i-rate": "../../iviewComponent/rate/index"
   },
   "navigationBarTitleText": "详情" ,
   "enablePullDownRefresh": true ,

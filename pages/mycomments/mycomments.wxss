@@ -1,0 +1,91 @@
+/* pages/mycomments/mycomments.wxss */
+
+.content-wrap{
+    /* background-color:  rgb(249, 249, 249); */
+    padding-bottom: 20rpx;
+    margin-top: 84rpx;
+}
+.tab-wrap{
+    z-index: 999;
+    position: relative;
+    
+}
+.tab-content{
+    padding: 20rpx 30rpx;
+}
+.m-step{
+    font-size: 40px;
+    color: rebeccapurple
+}
+.m-wrap{
+    display: flex;
+    flex-direction: column;
+    border-radius: 10rpx;
+    box-shadow:0 0 20rpx #b4b3b3;
+    margin-top: 20rpx;
+    font-weight: normal;
+    color: black;
+    padding: 20rpx 30rpx;
+}
+.m-title{
+    font-size: 32rpx;
+    display: flex;
+}
+.m-info{
+    display: flex;
+    align-items: center;
+    padding-bottom: 20rpx;
+    border-bottom:1px solid rgb(240, 240, 240);
+}
+.m-img{
+    width: 40rpx;
+    height: 59rpx;
+    border-radius: 2rpx;
+    
+}
+.m-img-song{
+    width: 40rpx;
+    height: 40rpx;
+    border-radius: 2rpx;
+}
+.m-i-name{
+    
+    font-size: 24rpx;
+    width: 320rpx;
+    padding-left: 20rpx;
+    padding-right: 20rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow:ellipsis; 
+
+}
+.m-comment{
+    padding: 20rpx 0;
+    font-size: 32rpx;
+}
+.m-i-tag{
+    font-size: 24rpx;
+    color: #666;
+    padding-top: 30rpx;
+    
+}
+.m-i-r-num{
+    font-size: 24rpx;
+    color: #666;
+    
+    
+}
+.m-i-rate{
+    display: flex;
+    align-items: center;
+    padding-top: 20rpx;
+    
+    
+}
+.m-i-r-star{
+
+    height: 30rpx;
+    padding-bottom: 12rpx;
+
+    
+}
