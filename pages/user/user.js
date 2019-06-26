@@ -51,11 +51,21 @@ Page({
         // }, 2000);
     },
     userClick:function(){
-        $Toast({
-            content: '此功能待开发！Developed by CHJ，CJX，ZZQ，XZQ，JJX，WXC',
-            type: 'warning',
-            duration: 1
-        });
+        let user = getApp().globalData.userInfo;
+        if (user == null) {
+            $Toast({
+                content: '请先登陆！',
+                type: 'warning',
+                duration: 1
+            });
+        } else {
+            $Toast({
+                content: '此功能待开发！Developed by CHJ，CJX，ZZQ，XZQ，JJX，WXC',
+                type: 'warning',
+                duration: 1
+            });
+        }
+        
     },
     wantClick:function(){
         let user = getApp().globalData.userInfo;
