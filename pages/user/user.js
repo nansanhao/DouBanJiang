@@ -12,43 +12,7 @@ Page({
         user: {
             avatar: "/images/user.png",
             name: "点击头像登陆",
-        },
-        authVisible: false
-    },
-    authClick() {
-        this.setData({
-            authVisible: true
-        });
-    },
-
-    authCancel() {
-        this.setData({
-            authVisible: false
-        });
-    },
-    authAllow() {
-        console.log("允许授权");
-        this.setData({
-            authVisible: false
-        });
-        // const action = [...this.data.actions2];
-        // action[0].loading = true;
-
-        // this.setData({
-        //     actions2: action
-        // });
-
-        // setTimeout(() => {
-        //     action[0].loading = false;
-        //     this.setData({
-        //         authVisible: false,
-        //         actions2: action
-        //     });
-        //     $Message({
-        //         content: '删除成功！',
-        //         type: 'success'
-        //     });
-        // }, 2000);
+        }
     },
     userClick:function(){
         let user = getApp().globalData.userInfo;
@@ -62,7 +26,7 @@ Page({
             $Toast({
                 content: '此功能待开发！Developed by CHJ，CJX，ZZQ，XZQ，JJX，WXC',
                 type: 'warning',
-                duration: 1
+                duration: 2
             });
         }
         
@@ -175,7 +139,11 @@ Page({
         
         let user = getApp().globalData.userInfo;
         if (user==null) {
-            
+            $Toast({
+                content: '请先登陆！',
+                type: 'warning',
+                duration: 1
+            });
         } else {
             
             this.setData({
@@ -196,7 +164,14 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function() {
-
+        let user = getApp().globalData.userInfo;
+        if (user == null) {
+            $Toast({
+                content: '请先登陆！',
+                type: 'warning',
+                duration: 1
+            });
+        }
     },
 
     /**

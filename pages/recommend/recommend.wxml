@@ -1,6 +1,6 @@
 <!-- pages/recommend/recommend.wxml -->
 <view class='swiper'>
-    <swiper indicator-dots="{{swiper.indicatorDots}}" autoplay="{{swiper.autoplay}}" interval="{{swiper.interval}}" duration="{{swiper.duration}}" style='height:320rpx'>
+    <swiper indicator-dots="{{swiper.indicatorDots}}" autoplay="{{swiper.autoplay}}" interval="{{swiper.interval}}" duration="{{swiper.duration}}" style='height:350rpx'>
         <block wx:for="{{swiper.imgUrl}}">
             <swiper-item class="s-item">
                 <image src="{{item}}" class="swiper-img" mode="widthFix" />

@@ -1,8 +1,10 @@
 /* pages/recommend/recommend.wxss */
 .swiper-img {
+    margin-top: 20rpx;
+    margin-bottom: 20rpx;
     width: 690rpx;
     border-radius: 30rpx;
-    box-shadow:0 0 30rpx #cecccc;
+    box-shadow:0 0 20rpx #cecccc;
     
 }
 .s-item{

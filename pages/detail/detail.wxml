@@ -8,7 +8,8 @@
             <view class='m-i-tag'>{{"片长："+movie.mo_length}}</view>
             <view class='m-i-tag'>
                 <text>标签：</text> 
-                <text wx:for="{{movie.tags}}">{{item.t_tag+" / "}}电影</text>
+                <text wx:for="{{movie.tags}}">{{item.t_tag+" / "}}</text>
+                <text>电影</text>
             </view>
             
             <view class='m-i-btn' wx-if="{{isSeen}}">
@@ -34,7 +35,8 @@
             <view class='m-i-tag'>{{"歌手："+song.mu_singer}}</view>
             <view class='m-i-tag'>
                 <text>标签：</text> 
-                <text wx:for="{{song.tags}}">{{item.t_tag+" / "}}歌曲</text>
+                <text wx:for="{{song.tags}}">{{item.t_tag+" / "}}</text>
+                <text>歌曲</text>
             </view>
             <view class='m-i-btn' wx-if="{{isSeen}}">
                 <i-button bind:click="handleViewed" size="small" type="info">
@@ -59,7 +61,8 @@
             <view class='m-i-tag'>{{"作者："+book.b_writer}}</view>
             <view class='m-i-tag'>
                 <text>标签：</text> 
-                <text wx:for="{{book.tags}}">{{item.t_tag+" / "}}书籍</text>
+                <text wx:for="{{book.tags}}">{{item.t_tag+" / "}}</text>
+                <text>书籍</text>
             </view>
             <view class='m-i-btn' wx-if="{{isSeen}}">
                 <i-button bind:click="handleViewed" size="small" type="info">

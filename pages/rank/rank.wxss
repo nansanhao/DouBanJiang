@@ -12,6 +12,7 @@
 
 .rank-item {
     margin: 0 24rpx 0 0;
+    padding-top: 10rpx;
     text-align: center;
 }
 
@@ -40,7 +41,7 @@
     text-overflow:ellipsis; 
 }
 .foot{
-    margin-bottom: 30rpx;
+    padding-bottom: 40rpx;
 }
 /* WEUI */
 

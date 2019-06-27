@@ -252,6 +252,7 @@ Page({
             let temp={};
             temp.tip="没有更多评论";
             temp.tipState=false;
+            temp.offset=that.data.offset+that.data.limit;
             temp.comments=that.data.comments.concat(res.data);
             that.setData(temp);
         })

@@ -6,9 +6,9 @@ Page({
      * 页面的初始数据
      */
     data: {
+        visible:false,
         searchVal: "",
         inputShowed: false,
-
         moviesRank: [],
         moviesHot: [],
         books: [],
@@ -60,7 +60,8 @@ Page({
                 moviesRank: res.data.new_movies,
                 moviesHot: res.data.hot_movies,
                 books: res.data.hot_books,
-                songs: res.data.hot_music
+                songs: res.data.hot_music,
+                visible:true
             })
 
         })
