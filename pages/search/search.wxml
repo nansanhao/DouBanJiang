@@ -5,7 +5,7 @@
             <view class="weui-search-bar__form">
                 <view class="weui-search-bar__box">
                     <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
-                    <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{searchVal}}" focus="{{searchFocused}}" bindinput="inputTyping" bindconfirm='confirm'/>
+                    <input type="text" class="weui-search-bar__input" confirm-type="search" placeholder="搜索" value="{{searchVal}}" focus="{{searchFocused}}" bindinput="inputTyping" bindconfirm='confirm'/>
                     <view class="weui-icon-clear" wx:if="{{searchVal.length > 0}}" bindtap="clearInput">
                         <icon type="clear" size="14"></icon>
                     </view>
@@ -61,7 +61,7 @@
     <view class='movie tab-content' wx-if="{{current=='Song'}}">
          <i-row>
             <i-col span="8" i-class="movie-item" wx:for="{{songs}}">
-                <view class='m-i-wrap'>
+                <view class='m-i-wrap-song'>
                     <navigator url="{{'/pages/detail/detail?id='+item.mu_id+'&type=song'}}"  class="m-i-img-song">
                         <image src='{{item.mu_picture}}' class='m-i-img-song' mode='aspectFill'></image>
                     </navigator>

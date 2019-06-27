@@ -41,8 +41,14 @@ Page({
             let temp={};
             temp[type]=res.data;
             temp.offset=0+this.data.limit;
-            this.setData(temp)
+            if (res.data.length < this.data.limit) {
+                this.setData({
+                    tip: "没有更多数据"
+                })
+            };
+            this.setData(temp);
         })
+        
         this.setData({
             current: detail.key
         });

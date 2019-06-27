@@ -29,6 +29,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 380rpx;
+}
+.m-i-wrap-song{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .m-i-img {
     width: 200rpx;
