@@ -78,18 +78,25 @@ Page({
     onLoad: function(options) {
         this.swiperRandom();
         let user = getApp().globalData.userInfo;
-        let route = "/users/" + user.id + "/recommends";
-        // let route = "/users/" + "1" + "/recommends";
-        
-        api.request("GET", route, true).then((res) => {
-            console.log(res.data);
-            this.setData({
-                movies: res.data.movies,
-                books: res.data.books,
-                songs: res.data.music
+        if (user == null) {
+            wx.switchTab({
+                url: '/pages/user/user'
             })
+        } else {
+            let route = "/users/" + user.id + "/recommends";
+            // let route = "/users/" + "1" + "/recommends";
 
-        })
+            api.request("GET", route, true).then((res) => {
+                console.log(res.data);
+                this.setData({
+                    movies: res.data.movies,
+                    books: res.data.books,
+                    songs: res.data.music
+                })
+
+            })
+        }
+
     },
 
     /**
@@ -103,7 +110,27 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function() {
+        let user = getApp().globalData.userInfo;
+        if (user == null) {
+            wx.switchTab({
+                url: '/pages/user/user'
+            })
+        } else {
+            let route = "/users/" + user.id + "/recommends";
+            // let route = "/users/" + "1" + "/recommends";
+            if(this.data.movies.length==0){
+                api.request("GET", route, true).then((res) => {
+                    console.log(res.data);
+                    this.setData({
+                        movies: res.data.movies,
+                        books: res.data.books,
+                        songs: res.data.music
+                    })
 
+                })
+            }
+            
+        }
     },
 
     /**
@@ -131,7 +158,7 @@ Page({
 
         api.request("GET", route, true).then((res) => {
             console.log(res.data);
-            
+
             this.setData({
                 movies: res.data.movies,
                 books: res.data.books,
@@ -140,7 +167,7 @@ Page({
             wx.stopPullDownRefresh(); //刷新完成后停止下拉刷新动效
 
         })
-        
+
     },
 
     /**
