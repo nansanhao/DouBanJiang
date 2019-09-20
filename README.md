@@ -10,8 +10,6 @@
 
 榜单
 
-> GET  /rank  榜单页面所有数据
->
 > GET  /movies/new  正在上映的电影
 >
 > GET  /movies/hot  热门电影
@@ -49,8 +47,6 @@
 >     session_id:""
 > }
 > ```
->
->GET  /user/:id/comments
 
 详情
 
@@ -101,18 +97,14 @@
 
 想看
 
-> GET  /movies/want?session_id=&offset=&limit=  获得想看的电影
+> GET  /movies/want?session_id=&type=&offset=&limit=  获得想看的电影
 >
-> GET  /songs/want?session_id=&offset=&limit=
+> GET  /songs/want?session_id=&type=&offset=&limit=
 >
-> GET  /books/want?session_id=&offset=&limit=
+> GET  /books/want?session_id=&type=&offset=&limit=
 >
-> GET  /movies/seen?session_id=&offset=&limit=  获得看过的电影
+> GET  /movies/seen?session_id=&type=&offset=&limit=  获得看过的电影
 >
-> GET  /songs/listened?session_id=&offset=&limit=
+> GET  /songs/listened?session_id=&type=&offset=&limit=
 >
-> GET  /books/viewed?session_id=&&offset=&limit=
-
-
-## 三. 数据库设计
-[数据库设计](https://github.com/nansanhao/DouBanJiang/blob/master/数据库设计.pdf)
+> GET  /books/viewed?session_id=&type=&offset=&limit=
